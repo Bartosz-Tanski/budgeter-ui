@@ -41,23 +41,25 @@ const AccountDetails = () => {
 
     return (
         <div className="account-details-container">
-            <h2 className="account-details-header">Account Overview</h2>
-            <ul className="account-details-list">
-                <li>
-                    <span className="account-details-label">Name:</span>
-                    <span className="account-details-value">{account.name}</span>
-                </li>
-                <li>
-                    <span className="account-details-label">Balance:</span>
-                    <span className="account-details-value">
+            <div className="upper-section-container">
+                <h2 className="account-details-header">Account Overview</h2>
+                <ul className="account-details-list">
+                    <li>
+                        <span className="account-details-label">Name:</span>
+                        <span className="account-details-value">{account.name}</span>
+                    </li>
+                    <li>
+                        <span className="account-details-label">Balance:</span>
+                        <span className="account-details-value">
                     {account.balance.toLocaleString()} {account.currencyCode}
                 </span>
-                </li>
-                <li>
-                    <span className="account-details-label">Currency:</span>
-                    <span className="account-details-value">{currencyName}</span>
-                </li>
-            </ul>
+                    </li>
+                    <li>
+                        <span className="account-details-label">Currency:</span>
+                        <span className="account-details-value">{currencyName}</span>
+                    </li>
+                </ul>
+            </div>
 
             <div className="middle-section-container">
                 <div className="transactions-container">
@@ -71,6 +73,22 @@ const AccountDetails = () => {
 
                 <div className="limit-container">
                     <LimitDisplay accountId={accountId} currencyCode={account.currencyCode} />
+                </div>
+            </div>
+
+            <div className="bottom-section-container">
+                <div className="transactions-details-container">
+                    <div className="transactions-details-section">
+                        <h3 className="middle-section-header">Transactions Details</h3>
+                        <p>Work in progress...</p>
+                    </div>
+                </div>
+
+                <div className="categories-overview-container">
+                    <div className="categories-overview-section">
+                        <h3 className="middle-section-header">Most Popular Categories</h3>
+                        <p>Work in progress...</p>
+                    </div>
                 </div>
             </div>
         </div>

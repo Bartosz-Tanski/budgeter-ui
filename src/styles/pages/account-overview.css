@@ -9,6 +9,15 @@
     color: #fff;
 }
 
+.upper-section-container {
+    position: sticky;
+    top: 20px;
+    z-index: 900;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+}
+
 .account-details-header {
     font-size: 26px;
     color: #00bcd4;
@@ -121,19 +130,8 @@
     background-color: #262626;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    overflow-y: auto; /* Wewnętrzne przewijanie tylko w pionie */
-    height: 400px;
-}
-
-.limit-section {
-    flex: 1;
-    background-color: #262626;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
     height: 400px;
 }
 
@@ -150,6 +148,16 @@
     background: #1f1f1f;
 }
 
+.limit-section {
+    flex: 1;
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
 
 .middle-section-container {
     display: flex;
@@ -207,8 +215,58 @@
     padding-bottom: 10px;
 }
 
+.bottom-section-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.transactions-details-container {
+    display: flex;
+    flex: 2;
+    gap: 20px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.transactions-details-section {
+    flex: 1;
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.categories-overview-container {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.categories-overview-section {
+    flex: 1;
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
 @media (max-width: 768px) {
     .middle-section-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bottom-section-container {
         flex-direction: column;
         gap: 20px;
     }
