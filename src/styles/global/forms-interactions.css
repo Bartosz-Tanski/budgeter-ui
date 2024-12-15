@@ -1,0 +1,28 @@
+﻿input:focus {
+    border-color: #00bcd4;
+    outline: none;
+    box-shadow: 0 0 5px #00bcd4;
+}
+
+select:focus {
+    border-color: #00bcd4;
+    outline: none;
+    box-shadow: 0 0 5px #00bcd4;
+}
+
+input:hover,
+select:hover {
+    background-color: #444;
+}
+
+input:invalid:focus,
+select:invalid:focus {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.8);
+}
+
+input:valid:focus,
+select:valid:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.8);
+}

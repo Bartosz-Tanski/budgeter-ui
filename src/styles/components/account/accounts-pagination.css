@@ -1,0 +1,86 @@
+﻿.pagination-container {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie całego kontenera */
+    align-items: center; /* Wyrównanie w pionie */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Zapewnia łamanie linii na mniejszych ekranach */
+    gap: 20px;
+    position: relative; /* Dla precyzyjnego rozmieszczenia */
+    padding: 25px;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* Wyrównanie w pionie */
+    justify-content: center;
+    flex: none; /* Utrzymanie szerokości automatycznej */
+    position: absolute;
+    left: 50%; /* Wyśrodkowanie horyzontalne */
+    transform: translateX(-50%); /* Kompensacja dla wyśrodkowania */
+}
+
+.pagination button {
+    padding: 10px 15px;
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #0190a8;
+}
+
+.pagination button:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.page-size-select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    right: 0; /* Przesunięcie do prawej krawędzi */
+}
+
+.page-size-select label {
+    color: #fff;
+    font-size: 16px;
+}
+
+.page-size-select select {
+    padding: 5px 10px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    width: auto;
+    min-width: 56px;
+}
+
+.page-size-select select:hover {
+    background-color: #444;
+    border-color: #00bcd4;
+}
+
+.page-size-select select:focus {
+    border-color: #00bcd4;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.8);
+}
+
+.page-size-select select:disabled,
+.page-size-select select:disabled:hover {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+    border: none;
+}

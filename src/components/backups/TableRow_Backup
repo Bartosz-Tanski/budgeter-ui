@@ -1,0 +1,27 @@
+﻿import React from "react";
+
+const TableRow = ({ account, onEdit, onDelete }) => {
+    return (
+        <tr>
+            <td>{account.name}</td>
+            <td>{account.balance}</td>
+            <td>{account.currencyCode}</td>
+            <td>
+                <button
+                    onClick={() => onEdit(account)}
+                    className="edit-button"
+                >
+                    EDIT
+                </button>
+                <button
+                    onClick={() => onDelete(account.id)}
+                    className="delete-button"
+                >
+                    DELETE
+                </button>
+            </td>
+        </tr>
+    );
+};
+
+export default TableRow;

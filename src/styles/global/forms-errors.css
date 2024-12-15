@@ -1,0 +1,27 @@
+﻿.form-group.error input,
+.form-group.error select {
+    border-color: #ff4d4d;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.8);
+}
+
+.form-group input.error {
+    border-color: #ff4d4d !important;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.8) !important;
+}
+
+.form-group input.error:focus {
+    border-color: #ff4d4d !important;
+    box-shadow: 0 0 5px rgba(255, 77, 77, 0.8) !important;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.error-message.hidden {
+    display: none;
+}
+
