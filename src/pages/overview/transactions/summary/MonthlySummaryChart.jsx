@@ -1,10 +1,10 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
-import { Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from "chart.js";
+import {Bar} from "react-chartjs-2";
+import {Chart, BarElement, CategoryScale, LinearScale, Tooltip, Legend} from "chart.js";
 
 Chart.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const MonthlySummaryChart = ({ totalIncomes, totalExpenses, currencyCode }) => {
+const MonthlySummaryChart = ({totalIncomes, totalExpenses, currencyCode}) => {
     const data = {
         labels: ["Incomes", "Expenses"],
         datasets: [
@@ -26,6 +26,7 @@ const MonthlySummaryChart = ({ totalIncomes, totalExpenses, currencyCode }) => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: false,
@@ -73,13 +74,13 @@ const MonthlySummaryChart = ({ totalIncomes, totalExpenses, currencyCode }) => {
         },
         animation: {
             duration: 1000,
-            easing: "easeOutBounce",
+            easing: "easeOut",
         },
     };
 
     return (
         <div className="monthly-summary-chart">
-            <Bar data={data} options={options} />
+            <Bar data={data} options={options}/>
         </div>
     );
 };
