@@ -1,6 +1,5 @@
 ﻿import React, {useState, useEffect} from "react";
 import axios from "axios";
-import {CircularProgressbar, buildStyles} from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "../../styles/pages/account-overview.css";
 import {useAuth} from "../../context/AuthContext.jsx";

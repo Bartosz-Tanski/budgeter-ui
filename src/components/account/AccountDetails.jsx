@@ -1,17 +1,18 @@
-﻿import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+﻿import React, {useState, useEffect} from "react";
+import {useParams} from "react-router-dom";
 import axios from "axios";
-import { useAuth } from "../../context/AuthContext.jsx";
+import {useAuth} from "../../context/AuthContext.jsx";
 import TransactionList from "../transactions/TransactionList.jsx";
 import "../../styles/pages/account-overview.css";
-import { fetchCurrency } from "../../common/helpers/currenciesHelper.js";
+import {fetchCurrency} from "../../common/helpers/currenciesHelper.js";
 import LimitDisplay from "../limit/LimitDisplay.jsx";
+import MonthlySummary from "../../pages/overview/transactions/summary/MonthlySummary.jsx";
 
 const AccountDetails = () => {
-    const { accountId } = useParams();
+    const {accountId} = useParams();
     const [account, setAccount] = useState(null);
     const [currencyName, setCurrencyName] = useState("");
-    const { token } = useAuth();
+    const {token} = useAuth();
 
     useEffect(() => {
         const fetchAccountDetails = async () => {
@@ -64,29 +65,28 @@ const AccountDetails = () => {
             <div className="middle-section-container">
                 <div className="transactions-container">
                     <div className="transactions-section">
-                        <TransactionList accountId={accountId} type="expenses" currencyCode={account.currencyCode} />
+                        <TransactionList accountId={accountId} type="expenses" currencyCode={account.currencyCode}/>
                     </div>
                     <div className="transactions-section">
-                        <TransactionList accountId={accountId} type="incomes" currencyCode={account.currencyCode} />
+                        <TransactionList accountId={accountId} type="incomes" currencyCode={account.currencyCode}/>
                     </div>
                 </div>
 
                 <div className="limit-container">
-                    <LimitDisplay accountId={accountId} currencyCode={account.currencyCode} />
+                    <LimitDisplay accountId={accountId} currencyCode={account.currencyCode}/>
                 </div>
             </div>
 
             <div className="bottom-section-container">
                 <div className="transactions-details-container">
                     <div className="transactions-details-section">
-                        <h3 className="middle-section-header">Transactions Details</h3>
-                        <p>Work in progress...</p>
+                        <MonthlySummary accountId={accountId} currencyCode={account.currencyCode} />
                     </div>
                 </div>
 
                 <div className="categories-overview-container">
-                    <div className="categories-overview-section">
-                        <h3 className="middle-section-header">Most Popular Categories</h3>
+                    <div className="transactions-details-section">
+                        <h3 className="middle-section-header">Categories Details</h3>
                         <p>Work in progress...</p>
                     </div>
                 </div>

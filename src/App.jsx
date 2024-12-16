@@ -7,8 +7,8 @@ import Menu from "./components/layout/Menu.jsx";
 import Accounts from "./components/account/Accounts.jsx";
 import CreateAccount from "./components/account/form/CreateAccount.jsx";
 import AccountDetails from "./components/account/AccountDetails.jsx";
-import ExpensesList from "./components/transactions/ExpensesList.jsx"; // Import ExpensesList
-import IncomesList from "./components/transactions/IncomesList.jsx"; // Import IncomesList
+import ExpensesList from "./components/transactions/ExpensesList.jsx";
+import IncomesList from "./components/transactions/IncomesList.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();
