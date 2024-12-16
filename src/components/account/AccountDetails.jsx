@@ -6,6 +6,7 @@ import TransactionList from "../transactions/TransactionList.jsx";
 import "../../styles/pages/account-overview.css";
 import { fetchCurrency } from "../../common/helpers/currenciesHelper.js";
 import LimitDisplay from "../limit/LimitDisplay.jsx";
+import CategoriesOverview from "../../pages/overview/categories/CategoriesOverview.jsx";
 
 const AccountDetails = () => {
     const { accountId } = useParams();
@@ -85,10 +86,7 @@ const AccountDetails = () => {
                 </div>
 
                 <div className="categories-overview-container">
-                    <div className="categories-overview-section">
-                        <h3 className="middle-section-header">Most Popular Categories</h3>
-                        <p>Work in progress...</p>
-                    </div>
+                    <CategoriesOverview />
                 </div>
             </div>
         </div>
