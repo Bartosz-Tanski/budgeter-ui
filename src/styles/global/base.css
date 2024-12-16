@@ -21,6 +21,12 @@ body {
     color: #fff;
 }
 
+canvas {
+    max-height: 300px;
+    width: 100%;
+}
+
+
 .redirection-link {
     color: #00bcd4;
     text-decoration: none;

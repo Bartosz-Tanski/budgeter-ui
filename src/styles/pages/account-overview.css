@@ -243,6 +243,29 @@
     height: 400px;
 }
 
+.transactions-details-section {
+    flex: 1;
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    height: 400px;
+}
+
+.transactions-details-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.transactions-details-section::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+.transactions-section::-webkit-scrollbar-track {
+    background: #1f1f1f;
+}
+
 .monthly-summary-chart {
     width: 80%;
     display: flex;
@@ -281,12 +304,6 @@
     box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-}
-
-
-canvas {
-    max-height: 300px;
-    width: 100%;
 }
 
 .monthly-summary-container ul {
