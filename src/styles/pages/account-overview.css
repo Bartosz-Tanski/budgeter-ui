@@ -113,10 +113,21 @@
     margin: 0;
 }
 
-.transaction-description {
-    font-size: 16px;
-    color: #ddd;
-    margin-top: 10px;
+.transaction-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.transaction-item-description {
+    text-align: left;
+}
+
+.transaction-item-category {
+    text-align: right;
+    font-style: italic;
 }
 
 .transactions-container {
