@@ -82,7 +82,7 @@ const LimitDisplay = ({accountId, currencyCode}) => {
     const percentage = Math.min((spent / limit) * 100, 100);
 
     return (
-        <div className="limit-section">
+        <div className="overview-section">
             <h3 className="middle-section-header">Monthly Limit</h3>
             {limit ? (
                 <LimitDetails limit={limit}

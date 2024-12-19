@@ -59,7 +59,7 @@
     color: #fff;
 }
 
-.transaction-item {
+.overview-item {
     background-color: #1f1f1f;
     padding: 15px 20px;
     border-radius: 8px;
@@ -69,7 +69,7 @@
     transition: all 0.3s ease;
 }
 
-.transaction-item:hover {
+.overview-item:hover {
     background-color: #333;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
     transform: translateY(-5px);
@@ -125,40 +125,6 @@
     gap: 20px;
     max-width: 100%;
     margin-bottom: 20px;
-}
-
-.transactions-section {
-    flex: 1;
-    background-color: #262626;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
-    height: 400px;
-}
-
-.transactions-section::-webkit-scrollbar {
-    width: 8px;
-}
-
-.transactions-section::-webkit-scrollbar-thumb {
-    background-color: #333;
-    border-radius: 5px;
-}
-
-.transactions-section::-webkit-scrollbar-track {
-    background: #1f1f1f;
-}
-
-.limit-section {
-    flex: 1;
-    background-color: #262626;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    height: 400px;
 }
 
 .middle-section-container {
@@ -232,7 +198,7 @@
     margin-bottom: 20px;
 }
 
-.transactions-details-section {
+.overview-section {
     flex: 1;
     background-color: #262626;
     padding: 20px;
@@ -241,28 +207,19 @@
     display: flex;
     flex-direction: column;
     height: 400px;
-}
-
-.transactions-details-section {
-    flex: 1;
-    background-color: #262626;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-    height: 400px;
 }
 
-.transactions-details-section::-webkit-scrollbar {
+.overview-section::-webkit-scrollbar {
     width: 8px;
 }
 
-.transactions-details-section::-webkit-scrollbar-thumb {
+.overview-section::-webkit-scrollbar-thumb {
     background-color: #333;
     border-radius: 5px;
 }
 
-.transactions-section::-webkit-scrollbar-track {
+.overview-section::-webkit-scrollbar-track {
     background: #1f1f1f;
 }
 
@@ -304,18 +261,6 @@
     box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-}
-
-.monthly-summary-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-    color: #ddd;
-    font-size: 16px;
-}
-
-.monthly-summary-container li {
-    margin: 5px 0;
 }
 
 @media (max-width: 768px) {

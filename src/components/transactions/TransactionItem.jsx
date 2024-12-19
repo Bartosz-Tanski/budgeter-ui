@@ -5,7 +5,7 @@ const TransactionItem = ({ transaction, type, currencyCode }) => {
     const isIncome = type === "incomes";
 
     return (
-        <div className={`transaction-item ${isIncome ? "income" : "expense"}`}>
+        <div className={`overview-item ${isIncome ? "income" : "expense"}`}>
             <div className="transaction-item-header">
                 <h4 className="transaction-item-title">{transaction.title}</h4>
                 <span className={`transaction-amount ${isIncome ? "positive" : "negative"}`}>
