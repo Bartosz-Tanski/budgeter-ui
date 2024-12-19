@@ -6,7 +6,7 @@ import RegisterForm from "./components/user/RegisterForm.jsx";
 import Menu from "./components/layout/Menu.jsx";
 import Accounts from "./components/account/Accounts.jsx";
 import CreateAccount from "./components/account/form/CreateAccount.jsx";
-import AccountDetails from "./components/account/AccountDetails.jsx";
+import AccountOverview from "./components/account/AccountOverview.jsx";
 import ExpensesList from "./components/transactions/ExpensesList.jsx";
 import IncomesList from "./components/transactions/IncomesList.jsx";
 
@@ -30,7 +30,7 @@ const App = () => {
                 ) : (
                     <>
                         <Route path="/accounts" element={<Accounts />} />
-                        <Route path="/accounts/:accountId" element={<AccountDetails />} />
+                        <Route path="/accounts/:accountId" element={<AccountOverview />} />
                         <Route path="/create-account" element={<CreateAccount />} />
                         <Route path="/accounts/:accountId/expenses" element={<ExpensesList />} />
                         <Route path="/accounts/:accountId/incomes" element={<IncomesList />} />

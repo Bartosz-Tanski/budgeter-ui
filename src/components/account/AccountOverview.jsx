@@ -8,7 +8,7 @@ import {fetchCurrency} from "../../common/helpers/currenciesHelper.js";
 import LimitDisplay from "../limit/LimitDisplay.jsx";
 import MonthlySummary from "../../pages/overview/transactions/summary/MonthlySummary.jsx";
 
-const AccountDetails = () => {
+const AccountOverview = () => {
     const {accountId} = useParams();
     const [account, setAccount] = useState(null);
     const [currencyName, setCurrencyName] = useState("");
@@ -64,12 +64,8 @@ const AccountDetails = () => {
 
             <div className="middle-section-container">
                 <div className="transactions-container">
-                    <div className="transactions-section">
-                        <TransactionList accountId={accountId} type="expenses" currencyCode={account.currencyCode}/>
-                    </div>
-                    <div className="transactions-section">
-                        <TransactionList accountId={accountId} type="incomes" currencyCode={account.currencyCode}/>
-                    </div>
+                    <TransactionList accountId={accountId} type="expenses" currencyCode={account.currencyCode}/>
+                    <TransactionList accountId={accountId} type="incomes" currencyCode={account.currencyCode}/>
                 </div>
 
                 <div className="limit-container">
@@ -79,13 +75,11 @@ const AccountDetails = () => {
 
             <div className="bottom-section-container">
                 <div className="transactions-details-container">
-                    <div className="transactions-details-section">
-                        <MonthlySummary accountId={accountId} currencyCode={account.currencyCode} />
-                    </div>
+                    <MonthlySummary accountId={accountId} currencyCode={account.currencyCode}/>
                 </div>
 
                 <div className="categories-overview-container">
-                    <div className="transactions-details-section">
+                    <div className="overview-section">
                         <h3 className="middle-section-header">Categories Details</h3>
                         <p>Work in progress...</p>
                     </div>
@@ -95,4 +89,4 @@ const AccountDetails = () => {
     );
 };
 
-export default AccountDetails;
+export default AccountOverview;

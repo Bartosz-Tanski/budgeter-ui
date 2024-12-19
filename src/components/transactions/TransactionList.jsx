@@ -35,7 +35,7 @@ const TransactionList = ({ accountId, type, currencyCode }) => {
     }, [accountId, type, token]);
 
     return (
-        <>
+        <div className="overview-section">
             <h3 className="middle-section-header">
                 {type === "incomes" ? "Recent Incomes" : "Recent Expenses"}
             </h3>
@@ -64,7 +64,7 @@ const TransactionList = ({ accountId, type, currencyCode }) => {
                     </Link>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 
