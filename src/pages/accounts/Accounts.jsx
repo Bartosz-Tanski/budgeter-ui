@@ -1,9 +1,9 @@
 ﻿import React from "react";
 import {Link, useNavigate} from "react-router-dom";
-import SearchBar from "../common/SearchBar.jsx";
+import SearchBar from "../../common/components/SearchBar.jsx";
 import AccountsTable from "./table/AccountsTable.jsx";
-import Pagination from "../common/Pagination.jsx";
-import ConfirmModal from "../modal/ConfirmModal.jsx";
+import Pagination from "../../common/components/Pagination.jsx";
+import ConfirmModal from "./form/ConfirmModal.jsx";
 import {deleteAccount, fetchAccounts, updateAccount} from "../../common/handlers/accountHandlers.js";
 import EditModal from "./form/EditModal.jsx";
 import {useEffect, useState} from "react";

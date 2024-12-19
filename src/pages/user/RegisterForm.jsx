@@ -1,9 +1,9 @@
 ﻿import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import InputField from "../common/InputField.jsx";
+import InputField from "../../common/components/InputField.jsx";
 import useRegisterValidation from "../../common/hooks/userRegisterValidation.js";
-import generateErrors from "../../common/helpers/generateErrors";
+import generateErrors from "../../common/helpers/generateErrors.js";
 
 const RegisterForm = () => {
     const [email, setEmail] = useState("");

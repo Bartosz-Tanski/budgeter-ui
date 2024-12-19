@@ -1,9 +1,9 @@
 ﻿import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import InputField from "../common/InputField.jsx";
-import ErrorMessage from "../common/ErrorMessage";
-import { useAuth } from "../../context/AuthContext";
+import InputField from "../../common/components/InputField.jsx";
+import ErrorMessage from "../../common/components/ErrorMessage.jsx";
+import { useAuth } from "../../context/AuthContext.jsx";
 
 const LoginForm = () => {
     const { setToken, setRefreshToken } = useAuth();

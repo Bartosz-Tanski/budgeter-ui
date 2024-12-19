@@ -1,14 +1,14 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
-import LoginForm from "./components/user/LoginForm.jsx";
-import RegisterForm from "./components/user/RegisterForm.jsx";
-import Menu from "./components/layout/Menu.jsx";
-import Accounts from "./components/account/Accounts.jsx";
-import CreateAccount from "./components/account/form/CreateAccount.jsx";
-import AccountOverview from "./components/account/AccountOverview.jsx";
-import ExpensesList from "./components/transactions/ExpensesList.jsx";
-import IncomesList from "./components/transactions/IncomesList.jsx";
+import LoginForm from "./pages/user/LoginForm.jsx";
+import RegisterForm from "./pages/user/RegisterForm.jsx";
+import Menu from "./common/components/Menu.jsx";
+import Accounts from "./pages/accounts/Accounts.jsx";
+import CreateAccount from "./pages/accounts/form/CreateAccount.jsx";
+import AccountOverview from "./pages/overview/AccountOverview.jsx";
+import ExpensesList from "./pages/transactions/ExpensesList.jsx";
+import IncomesList from "./pages/transactions/IncomesList.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();

@@ -1,7 +1,7 @@
 ﻿import React, {useEffect, useState} from "react";
-import "../../styles/pages/account-overview.css";
+import "../../../styles/pages/account-overview.css";
 import axios from "axios";
-import { useAuth } from "../../context/AuthContext.jsx";
+import { useAuth } from "../../../context/AuthContext.jsx";
 import {Link, useParams} from "react-router-dom";
 
 const TransactionItem = ({ transaction, type, currencyCode }) => {
