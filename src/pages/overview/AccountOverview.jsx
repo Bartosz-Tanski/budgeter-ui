@@ -2,11 +2,11 @@
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import {useAuth} from "../../context/AuthContext.jsx";
-import TransactionList from "../transactions/TransactionList.jsx";
 import "../../styles/pages/account-overview.css";
 import {fetchCurrency} from "../../common/helpers/currenciesHelper.js";
-import LimitDisplay from "../limit/LimitDisplay.jsx";
-import MonthlySummary from "../../pages/overview/transactions/summary/MonthlySummary.jsx";
+import TransactionList from "./recent-transactions/TransactionList.jsx";
+import LimitDisplay from "./limit/LimitDisplay.jsx";
+import MonthlySummary from "./transactions/summary/MonthlySummary.jsx";
 
 const AccountOverview = () => {
     const {accountId} = useParams();

@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import InputField from "../../common/InputField.jsx";
+import InputField from "../../../common/components/InputField.jsx";
 
 const AccountForm = ({
                          formType,

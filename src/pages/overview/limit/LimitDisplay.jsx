@@ -1,8 +1,8 @@
 ﻿import React, {useState, useEffect} from "react";
 import axios from "axios";
 import "react-circular-progressbar/dist/styles.css";
-import "../../styles/pages/account-overview.css";
-import {useAuth} from "../../context/AuthContext.jsx";
+import "../../../styles/pages/account-overview.css";
+import {useAuth} from "../../../context/AuthContext.jsx";
 import LimitDetails, {NoLimitSetMessage} from "./LimitDetails.jsx";
 
 const LimitDisplay = ({accountId, currencyCode}) => {

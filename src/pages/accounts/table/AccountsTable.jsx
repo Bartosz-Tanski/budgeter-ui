@@ -1,6 +1,6 @@
 ﻿import React from "react";
-import TableHeader from "./TableHeader";
-import TableRow from "./TableRow";
+import TableHeader from "./TableHeader.jsx";
+import TableRow from "./TableRow.jsx";
 
 const AccountsTable = ({ accounts, onEdit, onDelete, onSort, sortConfig, onAccountClick }) => {
     return (

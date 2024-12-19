@@ -1,6 +1,6 @@
 ﻿import React from "react";
-import ErrorMessage from "./ErrorMessage";
-import useInputHandlers from "../../common/hooks/useInputHandlers";
+import ErrorMessage from "./ErrorMessage.jsx";
+import useInputHandlers from "../hooks/useInputHandlers.js";
 
 const hasError = (error) => {
     return Array.isArray(error) ? error.length > 0 : Boolean(error);
