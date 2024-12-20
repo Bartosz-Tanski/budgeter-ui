@@ -8,8 +8,17 @@ const TableHeader = ({ onSort, sortConfig }) => {
         }));
     };
 
-    const renderSortIndicator = (key) =>
-        sortConfig.key === key ? (sortConfig.direction === 0 ? "▲" : "▼") : "";
+    const renderSortIndicator = (key) => {
+        if (sortConfig.key !== key) return null;
+
+        const isAscending = sortConfig.direction === 0; // Kierunek sortowania
+
+        return (
+            <i
+                className={`fas fa-chevron-up ${isAscending ? "rotated-up" : "rotated-down"}`}
+            ></i>
+        );
+    };
 
     return (
         <tr>
