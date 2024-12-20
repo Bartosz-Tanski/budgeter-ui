@@ -27,6 +27,7 @@
     color: #fff;
     font-size: 18px;
     margin: 0 10px;
+    transition: color 0.3s ease;
 }
 
 .menu-item:hover {
@@ -111,8 +112,10 @@
 .logout-button {
     position: absolute;
     right: 20px;
+    top: 50%; /* Pozycjonowanie względem środka paska menu */
+    transform: translateY(-50%); /* Wyrównanie środka przycisku */
     padding: 10px 15px;
-    background-color: #ff4d4d;
+    background-color: #b02525;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -122,7 +125,7 @@
 }
 
 .logout-button:hover {
-    background-color: #e04343;
+    background-color: #ea6464;
 }
 
 .logout-button:focus {
@@ -140,4 +143,62 @@
     color: #999;
     transition: transform 0.2s ease;
     margin-left: 8px;
+}
+
+/* General mobile styles */
+.hamburger-icon {
+    display: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.menu-items.mobile-open {
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #1f1f1f;
+    padding: 10px 0;
+}
+
+.menu-items.mobile-open .logout-button {
+    position: static;
+    width: 20%;
+    margin-left: 10px;
+    margin-top: 100px
+}
+
+
+@media (max-width: 850px) {
+    .menu-bar {
+        justify-content: space-between;
+    }
+
+    .menu-items {
+        display: none;
+    }
+
+    .menu-items.mobile-open {
+        display: flex;
+    }
+
+    .hamburger-icon {
+        display: block;
+    }
+
+    .logout-button {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
