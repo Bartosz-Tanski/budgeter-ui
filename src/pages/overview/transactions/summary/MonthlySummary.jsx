@@ -1,20 +1,9 @@
 ﻿import React, { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
 import axios from "axios";
 import { useAuth } from "../../../../context/AuthContext.jsx";
+import {generateDaysInMonth} from "../../../../common/helpers/dateHelper.js";
+import TransactionsSummaryChart from "./TransactionsSummaryChart.jsx";
 
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-} from "chart.js";
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const MonthlySummary = ({ accountId, currencyCode }) => {
     const { token } = useAuth();
@@ -26,7 +15,6 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
         balance: 0,
     });
 
-    // Fetch transactions and generate days in month
     useEffect(() => {
         const fetchTransactions = async () => {
             try {
@@ -68,7 +56,6 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
                     balance: totalIncomes - totalExpenses,
                 });
 
-                // Generate days for current month
                 const currentYear = new Date().getFullYear();
                 const currentMonth = new Date().getMonth();
                 setDaysInMonth(generateDaysInMonth(currentYear, currentMonth));
@@ -79,113 +66,6 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
 
         fetchTransactions();
     }, [accountId, token]);
-
-    // Helper function to generate days in the current month
-    const generateDaysInMonth = (year, month) => {
-        const days = [];
-        const date = new Date(year, month, 1);
-        while (date.getMonth() === month) {
-            days.push(new Date(date).toISOString().split("T")[0]); // YYYY-MM-DD
-            date.setDate(date.getDate() + 1);
-        }
-        return days;
-    };
-
-    // Group transactions by date
-    const groupTransactionsByDate = (transactions) => {
-        return transactions.reduce((acc, transaction) => {
-            const date = transaction.date.split("T")[0]; // YYYY-MM-DD
-            if (!acc[date]) {
-                acc[date] = [];
-            }
-            acc[date].push(transaction);
-            return acc;
-        }, {});
-    };
-
-    const groupedTransactions = groupTransactionsByDate(transactions);
-
-    // Prepare data for incomes and expenses
-    const incomesData = daysInMonth.map((day) => {
-        const transactionsForDay = groupedTransactions[day]?.filter((t) => t.type === "income") || [];
-        return transactionsForDay.reduce((sum, t) => sum + t.amount, 0);
-    });
-
-    const expensesData = daysInMonth.map((day) => {
-        const transactionsForDay = groupedTransactions[day]?.filter((t) => t.type === "expense") || [];
-        return transactionsForDay.reduce((sum, t) => sum + t.amount, 0);
-    });
-
-    // Remove dots for days with no transactions
-    const incomesPointRadius = incomesData.map((value) => (value === 0 ? 0 : 5));
-    const expensesPointRadius = expensesData.map((value) => (value === 0 ? 0 : 5));
-
-    const chartData = {
-        labels: daysInMonth,
-        datasets: [
-            {
-                label: "Incomes",
-                data: incomesData,
-                borderColor: "rgba(45,108,42, 1)",
-                backgroundColor: "rgba(45,108,42, 0.2)",
-                tension: 0.4,
-                fill: true,
-                pointRadius: incomesPointRadius, // Dynamic point radius
-            },
-            {
-                label: "Expenses",
-                data: expensesData,
-                borderColor: "rgba(255,77,79, 1)",
-                backgroundColor: "rgba(255, 77, 79, 0.2)",
-                tension: 0.4,
-                fill: true,
-                pointRadius: expensesPointRadius, // Dynamic point radius
-            },
-        ],
-    };
-
-    const maxIncome = Math.max(...incomesData);
-    const maxExpense = Math.max(...expensesData);
-    const maxYValue = Math.max(maxIncome, maxExpense) + 5000;
-
-    const chartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            tooltip: {
-                callbacks: {
-                    label: function (context) {
-                        const dayIndex = context.dataIndex;
-                        const totalIncomes = incomesData[dayIndex];
-                        const totalExpenses = expensesData[dayIndex];
-
-                        if (context.dataset.label === "Incomes") {
-                            return `Incomes: ${totalIncomes.toLocaleString()} ${currencyCode}`;
-                        } else if (context.dataset.label === "Expenses") {
-                            return `Expenses: ${totalExpenses.toLocaleString()} ${currencyCode}`;
-                        }
-                        return "";
-                    },
-                },
-            },
-        },
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: "Date",
-                },
-            },
-            y: {
-                beginAtZero: true,
-                suggestedMax: maxYValue,
-                title: {
-                    display: true,
-                    text: `Amount (${currencyCode})`,
-                },
-            },
-        },
-    };
 
     return (
         <div className="overview-section">
@@ -207,7 +87,10 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
             </p>
 
             <div className="overview-item">
-                <Line data={chartData} options={chartOptions} />
+                <TransactionsSummaryChart
+                    daysInMonth={daysInMonth}
+                    transactions={transactions}
+                    currencyCode={currencyCode} />
             </div>
         </div>
     );
