@@ -51,6 +51,21 @@
     user-select: none;
 }
 
+.accounts-table th i {
+    font-size: 14px;
+    color: #fff;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.rotated-up {
+    transform: rotate(0deg);
+}
+
+.rotated-down {
+    transform: rotate(180deg);
+}
+
 .accounts-table th:last-child {
     pointer-events: none;
 }
