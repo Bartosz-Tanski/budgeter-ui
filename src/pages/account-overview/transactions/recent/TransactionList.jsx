@@ -6,7 +6,7 @@ import { useAuth } from "../../../../context/AuthContext.jsx";
 
 const TransactionList = ({ accountId, type, currencyCode }) => {
     const [transactions, setTransactions] = useState([]);
-    const [totalItems, setTotalItems] = useState(0); // Dodajemy stan dla totalItems
+    const [totalItems, setTotalItems] = useState(0);
     const { token } = useAuth();
     const endpoint = `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/${type}`;
 
@@ -36,9 +36,9 @@ const TransactionList = ({ accountId, type, currencyCode }) => {
 
     return (
         <div className="overview-section">
-            <h3 className="middle-section-header">
+            <h2 className="base-header">
                 {type === "incomes" ? "Recent Incomes" : "Recent Expenses"}
-            </h3>
+            </h2>
             {transactions.length === 0 ? (
                 <p>No {type === "incomes" ? "incomes" : "expenses"} found.</p>
             ) : (

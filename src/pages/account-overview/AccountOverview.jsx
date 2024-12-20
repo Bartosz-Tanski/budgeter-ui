@@ -5,8 +5,8 @@ import {useAuth} from "../../context/AuthContext.jsx";
 import "../../styles/pages/account-overview.css";
 import {fetchCurrency} from "../../common/helpers/currenciesHelper.js";
 import TransactionList from "./transactions/recent/TransactionList.jsx";
-import LimitDisplay from "./limit/LimitDisplay.jsx";
-import TransactionsOverview from "./transactions/summary/MonthlySummary.jsx";
+import LimitOverview from "./limit/LimitOverview.jsx";
+import TransactionsOverview from "./transactions/overview/TransactionsOverview.jsx";
 import CategoriesOverview from "./categories/CategoriesOverview.jsx";
 
 const AccountOverview = () => {
@@ -45,7 +45,7 @@ const AccountOverview = () => {
     return (
         <div className="account-details-container">
             <div className="upper-section-container">
-                <h2 className="account-details-header">Account Overview</h2>
+                <h1 className="base-header">Account Overview</h1>
                 <ul className="account-details-list">
                     <li>
                         <span className="account-details-label">Name:</span>
@@ -71,7 +71,7 @@ const AccountOverview = () => {
                 </div>
 
                 <div className="limit-container">
-                    <LimitDisplay accountId={accountId} currencyCode={account.currencyCode}/>
+                    <LimitOverview accountId={accountId} currencyCode={account.currencyCode}/>
                 </div>
             </div>
 

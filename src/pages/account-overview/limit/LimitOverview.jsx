@@ -3,9 +3,10 @@ import axios from "axios";
 import "react-circular-progressbar/dist/styles.css";
 import "../../../styles/pages/account-overview.css";
 import {useAuth} from "../../../context/AuthContext.jsx";
-import LimitDetails, {NoLimitSetMessage} from "./LimitDetails.jsx";
+import LimitOverviewProgressbar from "./LimitOverviewProgressbar.jsx";
+import LimitDetails from "./LimitDetails.jsx";
 
-const LimitDisplay = ({accountId, currencyCode}) => {
+const LimitOverview = ({accountId, currencyCode}) => {
     const {token} = useAuth();
     const [limit, setLimit] = useState(null);
     const [spent, setSpent] = useState(0);
@@ -64,7 +65,7 @@ const LimitDisplay = ({accountId, currencyCode}) => {
     if (loading) {
         return (
             <div>
-                <h3 className="middle-section-header">Loading Limit...</h3>
+                <h3 className="base-header">Loading Limit...</h3>
             </div>
         );
     }
@@ -72,7 +73,7 @@ const LimitDisplay = ({accountId, currencyCode}) => {
     if (error) {
         return (
             <div>
-                <h3 className="middle-section-header">Error</h3>
+                <h3 className="base-header">Error</h3>
                 <p>{error}</p>
             </div>
         );
@@ -83,19 +84,23 @@ const LimitDisplay = ({accountId, currencyCode}) => {
 
     return (
         <div className="overview-section">
-            <h3 className="middle-section-header">Monthly Limit</h3>
+            <h2 className="base-header">Monthly Limit</h2>
             {limit ? (
-                <LimitDetails limit={limit}
-                              remaining={remaining}
-                              spent={spent}
-                              currencyCode={currencyCode}
-                              percentage={percentage}
-                />) : (
-                <NoLimitSetMessage/>
+                <>
+                    <LimitOverviewProgressbar percentage={percentage} />
+                    <LimitDetails limit={limit}
+                                  remaining={remaining}
+                                  currencyCode={currencyCode}
+                                  spent={spent} />
+                </>
+            ) : (
+                <>
+                    <p>No limit set for this account.</p>
+                </>
             )
             }
         </div>
     );
 };
 
-export default LimitDisplay;
+export default LimitOverview;
