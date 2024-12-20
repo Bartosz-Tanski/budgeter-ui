@@ -1,4 +1,6 @@
-﻿:root {
+﻿@import '@fortawesome/fontawesome-free/css/all.css';
+
+:root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     width: 100%;
     line-height: 1.5;

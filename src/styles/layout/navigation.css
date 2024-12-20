@@ -6,21 +6,26 @@
     background-color: #1f1f1f;
     z-index: 1000;
     border-bottom: 1px solid #333;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .menu-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 50px;
     align-items: center;
     padding: 10px 20px;
     color: #fff;
+    position: relative;
 }
 
 .menu-item {
+    position: relative;
     cursor: pointer;
     color: #fff;
     font-size: 18px;
-    text-decoration: none;
     margin: 0 10px;
 }
 
@@ -30,12 +35,16 @@
 
 .dropdown {
     position: absolute;
-    top: 40px;
+    top: 100%;
+    left: 0;
     background-color: #333;
     border: 1px solid #444;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     z-index: 1001;
+    padding: 10px 0;
+    display: none;
+    min-width: 200px;
 }
 
 .dropdown-item {
@@ -43,6 +52,7 @@
     padding: 10px 15px;
     color: #fff;
     text-decoration: none;
+    white-space: nowrap;
     transition: background-color 0.2s ease;
 }
 
@@ -50,7 +60,57 @@
     background-color: #444;
 }
 
+.nested {
+    position: relative;
+}
+
+.menu-label i {
+    font-size: 12px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.rotated {
+    transform: rotate(90deg);
+}
+
+.menu-item i {
+    font-size: 14px;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.menu-item .rotated {
+    transform: rotate(180deg);
+}
+
+.nested:hover > .menu-label::after,
+.nested:focus-within > .menu-label::after {
+    transform: rotate(180deg);
+}
+
+.nested-dropdown {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: none;
+    min-width: 200px;
+}
+
+.nested:hover .nested-dropdown,
+.nested:focus-within .nested-dropdown {
+    display: block;
+}
+
+
 .logout-button {
+    position: absolute;
+    right: 20px;
     padding: 10px 15px;
     background-color: #ff4d4d;
     color: #fff;
@@ -58,7 +118,6 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    margin-left: 20px;
     transition: background-color 0.3s ease;
 }
 
@@ -71,6 +130,14 @@
     box-shadow: 0 0 5px rgba(255, 77, 77, 0.8);
 }
 
-.menu-item, .dropdown-item, .accounts-table th {
-    user-select: none;
+.menu-item:hover .dropdown,
+.menu-item:focus-within .dropdown {
+    display: block;
+}
+
+.fas.fa-chevron-right {
+    font-size: 12px;
+    color: #999;
+    transition: transform 0.2s ease;
+    margin-left: 8px;
 }
