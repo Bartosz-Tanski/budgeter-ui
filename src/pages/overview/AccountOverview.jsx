@@ -26,6 +26,7 @@ const AccountOverview = () => {
                     }
                 );
                 setAccount(response.data);
+
                 const currencyDetails = await fetchCurrency(response.data.currencyCode);
                 setCurrencyName(currencyDetails.name);
             } catch (error) {
