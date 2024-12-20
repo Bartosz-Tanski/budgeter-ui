@@ -14,7 +14,7 @@ import {groupTransactionsByDate} from "../../../../common/helpers/transactionsHe
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const TransactionsSummaryChart = ({ daysInMonth, transactions, currencyCode }) => {
+const TransactionsOverviewChart = ({ daysInMonth, transactions, currencyCode }) => {
     const groupedTransactions = groupTransactionsByDate(transactions);
 
     const incomesData = daysInMonth.map((day) => {
@@ -48,7 +48,7 @@ const TransactionsSummaryChart = ({ daysInMonth, transactions, currencyCode }) =
             {
                 label: "Expenses",
                 data: expensesData,
-                borderColor: "rgba(255,77,79, 1)",
+                borderColor: "rgba(255, 77, 79, 1)",
                 backgroundColor: "rgba(255, 77, 79, 0.2)",
                 tension: 0.4,
                 fill: true,
@@ -60,6 +60,7 @@ const TransactionsSummaryChart = ({ daysInMonth, transactions, currencyCode }) =
     const chartOptions = {
         responsive: true,
         maintainAspectRatio: false,
+        devicePixelRatio: 1,
         plugins: {
             tooltip: {
                 callbacks: {
@@ -99,4 +100,4 @@ const TransactionsSummaryChart = ({ daysInMonth, transactions, currencyCode }) =
     return (<Line data={chartData} options={chartOptions} />)
 }
 
-export default TransactionsSummaryChart;
+export default TransactionsOverviewChart;
