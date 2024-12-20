@@ -1,5 +1,6 @@
 ﻿import React from "react";
 import InputField from "../../../common/components/InputField.jsx";
+import {Link} from "react-router-dom";
 
 const AccountForm = ({
                          formType,
@@ -53,6 +54,9 @@ const AccountForm = ({
             </div>
         )}
         <button hidden={formType !== "Create"} type="submit">Create Account</button>
+        <Link className="redirection-link" to={"/accounts"}>
+            <p> Back </p>
+        </Link>
     </form>
 );
 

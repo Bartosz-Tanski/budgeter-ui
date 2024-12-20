@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import LoginForm from "./pages/user/LoginForm.jsx";
@@ -16,6 +16,13 @@ const App = () => {
     const handleLogout = () => {
         setToken(null);
     };
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem("accessToken");
+        if (storedToken) {
+            setToken(storedToken);
+        }
+    }, [setToken]);
 
     return (
         <div>
