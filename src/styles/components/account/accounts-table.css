@@ -12,10 +12,9 @@
     overflow: hidden;
 }
 
-.table-container h2 {
-    font-size: 24px;
-    color: #00bcd4;
-    margin-bottom: 20px;
+.table-container i {
+    margin-right: 15px;
+    vertical-align: center;
 }
 
 .accounts-table {
@@ -97,8 +96,12 @@
     background-color: #476a75;
 }
 
+.search-bar {
+    text-align: left;
+}
+
 .search-input {
-    width: 95%;
+    width: 25%;
     padding: 10px;
     background-color: #333;
     border: 1px solid #555;

@@ -63,7 +63,11 @@ const CreateAccount = () => {
 
     return (
         <div className="form-container">
-            <h2 hidden={success}>Create Account</h2>
+            <h1 className="base-header" hidden={success}>
+                <i className="fa-solid fa-building-columns"></i>
+                Create Account
+            </h1>
+
             {success ? (
                 <SuccessMessage />
             ) : (

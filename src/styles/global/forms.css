@@ -9,10 +9,9 @@
     text-align: center;
 }
 
-.form-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #00bcd4;
+.form-container i{
+    margin-right: 15px;
+    vertical-align: center;
 }
 
 .form-container input,

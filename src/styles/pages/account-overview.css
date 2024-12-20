@@ -9,6 +9,11 @@
     color: #fff;
 }
 
+.account-details-container i {
+    margin-right: 15px;
+    vertical-align: center;
+}
+
 .upper-section-container {
     position: sticky;
     top: 20px;

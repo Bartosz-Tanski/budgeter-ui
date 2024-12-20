@@ -54,7 +54,10 @@ const Accounts = () => {
 
     return (
         <div className="table-container">
-            <h1 className="base-header">Your Accounts</h1>
+            <h1 className="base-header">
+                <i className="fa-solid fa-house"></i>
+                Your Accounts
+            </h1>
             {selectedAccount && (
                 <p>
                     Chosen Account: {selectedAccount.name}, {selectedAccount.balance}{" "}
