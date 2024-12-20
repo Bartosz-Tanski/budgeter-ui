@@ -2,7 +2,7 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import TransactionItem from "./TransactionItem.jsx";
-import { useAuth } from "../../../context/AuthContext.jsx";
+import { useAuth } from "../../../../context/AuthContext.jsx";
 
 const TransactionList = ({ accountId, type, currencyCode }) => {
     const [transactions, setTransactions] = useState([]);

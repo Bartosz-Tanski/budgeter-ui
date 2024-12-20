@@ -4,7 +4,7 @@ import axios from "axios";
 import {useAuth} from "../../context/AuthContext.jsx";
 import "../../styles/pages/account-overview.css";
 import {fetchCurrency} from "../../common/helpers/currenciesHelper.js";
-import TransactionList from "./recent-transactions/TransactionList.jsx";
+import TransactionList from "./transactions/recent/TransactionList.jsx";
 import LimitDisplay from "./limit/LimitDisplay.jsx";
 import MonthlySummary from "./transactions/summary/MonthlySummary.jsx";
 
