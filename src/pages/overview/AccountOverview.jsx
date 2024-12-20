@@ -6,7 +6,8 @@ import "../../styles/pages/account-overview.css";
 import {fetchCurrency} from "../../common/helpers/currenciesHelper.js";
 import TransactionList from "./transactions/recent/TransactionList.jsx";
 import LimitDisplay from "./limit/LimitDisplay.jsx";
-import MonthlySummary from "./transactions/summary/MonthlySummary.jsx";
+import TransactionsOverview from "./transactions/summary/MonthlySummary.jsx";
+import CategoriesOverview from "./categories/CategoriesOverview.jsx";
 
 const AccountOverview = () => {
     const {accountId} = useParams();
@@ -76,14 +77,11 @@ const AccountOverview = () => {
 
             <div className="bottom-section-container">
                 <div className="transactions-details-container">
-                    <MonthlySummary accountId={accountId} currencyCode={account.currencyCode}/>
+                    <TransactionsOverview accountId={accountId} currencyCode={account.currencyCode} />
                 </div>
 
                 <div className="categories-overview-container">
-                    <div className="overview-section">
-                        <h3 className="middle-section-header">Categories Details</h3>
-                        <p>Work in progress...</p>
-                    </div>
+                    <CategoriesOverview accountId={accountId} currencyCode={account.currencyCode} />
                 </div>
             </div>
         </div>

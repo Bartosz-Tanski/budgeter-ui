@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useAuth } from "../../../../context/AuthContext.jsx";
 import {generateDaysInMonth} from "../../../../common/helpers/dateHelper.js";
-import TransactionsSummaryChart from "./TransactionsSummaryChart.jsx";
+import TransactionsOverviewChart from "./TransactionsOverviewChart.jsx";
 
 
 const MonthlySummary = ({ accountId, currencyCode }) => {
@@ -87,7 +87,7 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
             </p>
 
             <div className="overview-item">
-                <TransactionsSummaryChart
+                <TransactionsOverviewChart
                     daysInMonth={daysInMonth}
                     transactions={transactions}
                     currencyCode={currencyCode} />
