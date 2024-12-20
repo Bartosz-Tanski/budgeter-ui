@@ -5,7 +5,7 @@ import {generateDaysInMonth} from "../../../../common/helpers/dateHelper.js";
 import TransactionsOverviewChart from "./TransactionsOverviewChart.jsx";
 
 
-const MonthlySummary = ({ accountId, currencyCode }) => {
+const TransactionsOverview = ({ accountId, currencyCode }) => {
     const { token } = useAuth();
     const [transactions, setTransactions] = useState([]);
     const [daysInMonth, setDaysInMonth] = useState([]);
@@ -47,7 +47,7 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
 
                 setTransactions([...incomes, ...expenses]);
 
-                // Calculate summary
+                // Calculate overview
                 const totalIncomes = incomes.reduce((sum, income) => sum + income.amount, 0);
                 const totalExpenses = expenses.reduce((sum, expense) => sum + expense.amount, 0);
                 setSummary({
@@ -69,7 +69,7 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
 
     return (
         <div className="overview-section">
-            <h3 className="middle-section-header">Monthly Summary</h3>
+            <h2 className="base-header">Transactions Overview</h2>
 
             <p>
                 <span className="account-details-label">Total Incomes: </span>
@@ -96,4 +96,4 @@ const MonthlySummary = ({ accountId, currencyCode }) => {
     );
 };
 
-export default MonthlySummary;
+export default TransactionsOverview;

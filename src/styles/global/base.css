@@ -35,3 +35,13 @@ canvas {
 .redirection-link:hover {
     text-decoration: underline;
 }
+
+.base-header {
+    width: 100%;
+    color: #00bcd4;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}

@@ -22,14 +22,6 @@ const CategoriesOverviewChart = ({categoryStats, currencyCode}) => {
         .filter((item) => item.type === "Income")
         .map((item) => item.categoryName);
 
-    const expenseData = categoryStats
-        .filter((item) => item.type === "Expense")
-        .map((item) => item.totalAmount);
-
-    const incomeData = categoryStats
-        .filter((item) => item.type === "Income")
-        .map((item) => item.totalAmount);
-
     const chartData = {
         labels: [...new Set([...expenseLabels, ...incomeLabels])], // Merge unique labels
         datasets: [

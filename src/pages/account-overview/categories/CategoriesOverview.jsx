@@ -46,19 +46,20 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
 
     return (
         <div className="overview-section">
-            <h3 className="middle-section-header">Categories Overview</h3>
+            <h2 className="base-header">Categories Overview</h2>
 
             {topExpenses.length === 0 ?
                 (<p>No expenses categories found.</p>) :
                 (<div className="top-categories">
-                        <h4>Top 3 Expenses</h4>
-                        <ul>
+                        <h3 className="account-details-label">Top 3 Expenses</h3>
+                        <ol>
                             {topExpenses.map((expense, index) => (
                                 <li key={index}>
-                                    {expense.categoryName}: {expense.totalAmount} PLN
+                                    <span className="account-details-label">{expense.categoryName}:</span>
+                                    <span>{" " + expense.totalAmount} {currencyCode} </span>
                                 </li>
                             ))}
-                        </ul>
+                        </ol>
                     </div>
                 )
             }
@@ -66,14 +67,15 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
             {topIncomes.length === 0 ?
                 (<p>No incomes categories found.</p>) :
                 (<div className="top-categories">
-                        <h4>Top 3 Incomes</h4>
-                        <ul>
+                        <h3 className="account-details-label">Top 3 Incomes</h3>
+                        <ol>
                             {topIncomes.map((income, index) => (
                                 <li key={index}>
-                                    {income.categoryName}: {income.totalAmount.toFixed(2)} PLN
+                                    <span className="account-details-label">{income.categoryName}: </span>
+                                    <span> {" " + income.totalAmount.toFixed(2)} {currencyCode} </span>
                                 </li>
                             ))}
-                        </ul>
+                        </ol>
                     </div>
                 )
             }

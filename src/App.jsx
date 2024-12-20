@@ -6,7 +6,7 @@ import RegisterForm from "./pages/user/RegisterForm.jsx";
 import Menu from "./common/components/Menu.jsx";
 import Accounts from "./pages/accounts/Accounts.jsx";
 import CreateAccount from "./pages/accounts/form/CreateAccount.jsx";
-import AccountOverview from "./pages/overview/AccountOverview.jsx";
+import AccountOverview from "./pages/account-overview/AccountOverview.jsx";
 import ExpensesList from "./pages/transactions/ExpensesList.jsx";
 import IncomesList from "./pages/transactions/IncomesList.jsx";
 
