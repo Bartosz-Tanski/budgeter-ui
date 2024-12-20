@@ -35,7 +35,10 @@ const LoginForm = () => {
 
     return (
         <div className="form-container">
-            <h2>Login</h2>
+            <h1 className="base-header">
+                <i className="fa-solid fa-user"></i>
+                Login
+            </h1>
             <ErrorMessage message={error} />
             <form onSubmit={handleSubmit}>
                 <InputField

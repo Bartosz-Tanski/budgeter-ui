@@ -46,7 +46,10 @@ const EditModal = ({ isOpen, onClose, account, onSubmit, token }) => {
     return (
         <div className="modal-overlay">
             <div className="modal modal-form-container">
-                <h2>Edit Account</h2>
+                <h1 className="base-header">
+                    <i className="fa-solid fa-user-pen"></i>
+                    Edit Account
+                </h1>
                 <AccountForm
                     formType="Edit"
                     name={formData.name}

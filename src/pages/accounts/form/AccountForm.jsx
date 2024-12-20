@@ -55,7 +55,7 @@ const AccountForm = ({
         )}
         <button hidden={formType !== "Create"} type="submit">Create Account</button>
         <Link className="redirection-link" to={"/accounts"}>
-            <p> Back </p>
+            {formType === "Edit" ? ("") : (<p> Back </p>)}
         </Link>
     </form>
 );

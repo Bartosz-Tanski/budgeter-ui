@@ -30,7 +30,8 @@ const Menu = ({ onLogout }) => {
                     onClick={() => toggleDropdown("accounts")}
                 >
                     <span className="menu-label">
-                        Accounts <i className={`fas fa-chevron-down ${openDropdown === "accounts" ? "rotated" : ""}`}></i>
+                        Accounts
+                        <i className={`fas fa-chevron-down ${openDropdown === "accounts" ? "rotated" : ""}`}></i>
                     </span>
                     {openDropdown === "accounts" && (
                         <div className="dropdown">

@@ -45,7 +45,11 @@ const AccountOverview = () => {
     return (
         <div className="account-details-container">
             <div className="upper-section-container">
-                <h1 className="base-header">Account Overview</h1>
+                <h1 className="base-header">
+                    <i className="fa-solid fa-chart-pie"></i>
+                    Account Overview
+                </h1>
+
                 <ul className="account-details-list">
                     <li>
                         <span className="account-details-label">Name:</span>

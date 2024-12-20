@@ -51,7 +51,10 @@ const RegisterForm = () => {
 
     return (
         <div className="form-container">
-            <h2>Register</h2>
+            <h1 className="base-header">
+                <i className="fa-solid fa-user-plus"></i>
+                Register
+            </h1>
             <form onSubmit={handleSubmit}>
                 <InputField
                     type="email"
