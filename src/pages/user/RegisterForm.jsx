@@ -2,7 +2,7 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import InputField from "../../common/components/InputField.jsx";
-import useRegisterValidation from "../../common/hooks/userRegisterValidation.js";
+import useRegisterValidation from "../../common/hooks/useRegisterValidation.js";
 import generateErrors from "../../common/helpers/generateErrors.js";
 
 const RegisterForm = () => {

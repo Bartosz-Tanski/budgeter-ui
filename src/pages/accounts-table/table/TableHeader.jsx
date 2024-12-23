@@ -11,7 +11,7 @@ const TableHeader = ({ onSort, sortConfig }) => {
     const renderSortIndicator = (key) => {
         if (sortConfig.key !== key) return null;
 
-        const isAscending = sortConfig.direction === 0; // Kierunek sortowania
+        const isAscending = sortConfig.direction === 0;
 
         return (
             <i

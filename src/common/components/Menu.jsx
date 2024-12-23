@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 
 const Menu = ({ onLogout }) => {
     const location = useLocation();
@@ -96,7 +96,7 @@ const Menu = ({ onLogout }) => {
                                         </span>
                                         {openSubmenu === "incomes" && (
                                             <div className="nested-dropdown">
-                                                <Link to="/accounts" className="dropdown-item">
+                                                <Link to={`/accounts/${accountId}/incomes`} className="dropdown-item">
                                                     View Incomes
                                                 </Link>
                                                 <Link to="/accounts" className="dropdown-item">
@@ -117,7 +117,7 @@ const Menu = ({ onLogout }) => {
                                         </span>
                                         {openSubmenu === "expenses" && (
                                             <div className="nested-dropdown">
-                                                <Link to="/accounts" className="dropdown-item">
+                                                <Link to={`/accounts/${accountId}/expenses`} className="dropdown-item">
                                                     View Expenses
                                                 </Link>
                                                 <Link to="/accounts" className="dropdown-item">

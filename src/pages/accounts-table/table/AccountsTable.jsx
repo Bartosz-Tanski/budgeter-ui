@@ -4,7 +4,7 @@ import TableRow from "./TableRow.jsx";
 
 const AccountsTable = ({ accounts, onEdit, onDelete, onSort, sortConfig, onAccountClick }) => {
     return (
-        <table className="accounts-table">
+        <table className="table">
             <thead>
             <TableHeader onSort={onSort} sortConfig={sortConfig} />
             </thead>
