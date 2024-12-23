@@ -86,7 +86,7 @@ const Accounts = () => {
                         setAccountIdToDelete(accountId);
                         setModalOpen(true);
                     }}
-                    onAccountClick={handleAccountSelect} // Przekazanie nowej funkcji
+                    onAccountClick={handleAccountSelect}
                     onSort={setSortConfig}
                     sortConfig={sortConfig}
                 />

@@ -4,11 +4,11 @@ import { useAuth } from "./context/AuthContext";
 import LoginForm from "./pages/user/LoginForm.jsx";
 import RegisterForm from "./pages/user/RegisterForm.jsx";
 import Menu from "./common/components/Menu.jsx";
-import Accounts from "./pages/accounts/Accounts.jsx";
-import CreateAccount from "./pages/accounts/form/CreateAccount.jsx";
+import Accounts from "./pages/accounts-table/Accounts.jsx";
+import CreateAccount from "./pages/accounts-table/form/CreateAccount.jsx";
 import AccountOverview from "./pages/account-overview/AccountOverview.jsx";
-import ExpensesList from "./pages/transactions/ExpensesList.jsx";
-import IncomesList from "./pages/transactions/IncomesList.jsx";
+import ExpensesList from "./pages/transactions-table/ExpensesList.jsx";
+import IncomesList from "./pages/transactions-table/incomes/IncomesList.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();

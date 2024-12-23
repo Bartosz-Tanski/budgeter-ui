@@ -60,7 +60,7 @@ const TransactionsOverview = ({ accountId, currencyCode }) => {
                 const currentMonth = new Date().getMonth();
                 setDaysInMonth(generateDaysInMonth(currentYear, currentMonth));
             } catch (error) {
-                console.error("Failed to fetch transactions:", error);
+                console.error("Failed to fetch transactions-table:", error);
             }
         };
 

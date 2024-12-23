@@ -27,7 +27,7 @@ const TransactionList = ({ accountId, type, currencyCode }) => {
                 setTransactions(response.data.items);
                 setTotalItems(response.data.totalItems);
             } catch (error) {
-                console.error("Error fetching transactions:", error);
+                console.error("Error fetching transactions-table:", error);
             }
         };
 

@@ -27,7 +27,7 @@ export const fetchAccounts = async ({
         setAccounts(response.data.items);
         setTotalPages(response.data.totalPages);
     } catch (err) {
-        console.error("Error fetching accounts:", err);
+        console.error("Error fetching accounts-table:", err);
     }
 };
 
