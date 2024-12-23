@@ -116,6 +116,7 @@ const Accounts = () => {
                         setAccountIdToDelete,
                     });
                 }}
+                objectTypeName="account"
             />
             <EditModal
                 isOpen={editModalOpen}

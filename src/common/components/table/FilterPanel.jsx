@@ -1,6 +1,6 @@
 ﻿import React, {useState} from "react";
-import SearchBar from "../../../../common/components/table/SearchBar.jsx";
-import {getDefaultStartDate, getTodayDate} from "../../../../common/helpers/dateHelper.js";
+import SearchBar from "./SearchBar.jsx";
+import {getDefaultStartDate, getTodayDate} from "../../helpers/dateHelper.js";
 
 const FilterPanel = ({
                          searchQuery,
@@ -29,6 +29,7 @@ const FilterPanel = ({
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
                 />
+                -
                 <input
                     type="date"
                     className="filter-input date-input"

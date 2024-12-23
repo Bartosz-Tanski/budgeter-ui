@@ -2,7 +2,7 @@
 import IncomesTableHeader from "./IncomesTableHeader.jsx";
 import IncomesTableRow from "./IncomesTableRow.jsx";
 
-const IncomesTable = ({ incomes, sortConfig, onSort }) => {
+const IncomesTable = ({ incomes, sortConfig, onSort, onDelete }) => {
     return (
         <table className="table">
             <thead>
@@ -13,6 +13,7 @@ const IncomesTable = ({ incomes, sortConfig, onSort }) => {
                 <IncomesTableRow
                     key={income.id}
                     income={income}
+                    onDelete={onDelete}
                 />
             ))}
             </tbody>

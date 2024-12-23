@@ -12,7 +12,7 @@ export async function fetchCategories({ token, accountId }) {
     return response.data;
 }
 
-export async function fetchIncomes({
+export async function fetchExpenses({
                                        token,
                                        accountId,
                                        pageNumber,
@@ -55,7 +55,7 @@ export async function fetchIncomes({
     }
 
     const response = await axios.get(
-        `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/incomes`,
+        `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/expenses`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -67,28 +67,28 @@ export async function fetchIncomes({
     return response.data;
 }
 
-export async function deleteIncome({
+export async function deleteExpense({
                                        accountId,
-                                       incomeIdToDelete,
+                                       expenseIdToDelete,
                                        token,
-                                       fetchIncomes,
+                                       fetchExpenses,
                                        setModalOpen,
-                                       setIncomeIdToDelete,
+                                       setExpenseIdToDelete,
                                    }) {
     try {
         await axios.delete(
-            `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/incomes/${incomeIdToDelete}`,
+            `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/expenses/${expenseIdToDelete}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             }
         );
-        await fetchIncomes();
+        await fetchExpenses();
     } catch (error) {
-        console.error("Error deleting income:", error);
+        console.error("Error deleting expense:", error);
     } finally {
         setModalOpen(false);
-        setIncomeIdToDelete(null);
+        setExpenseIdToDelete(null);
     }
 }

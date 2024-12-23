@@ -2,23 +2,23 @@
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext.jsx";
 import Pagination from "../../../common/components/table/Pagination.jsx";
-import IncomesTable from "./table/IncomesTable.jsx";
-import FilterPanel from "../../../common/components/table/FilterPanel.jsx";
+import ExpensesTable from "./table/ExpensesTable.jsx";
+import FilterPanel from "./../../../common/components/table/FilterPanel.jsx";
 
-import { fetchCategories, fetchIncomes } from "./../../../common/helpers/incomesHelper.js";
+import { fetchCategories, fetchExpenses } from "./../../../common/helpers/expensesHelper.js";
 import ConfirmModal from "../../accounts-table/form/ConfirmModal.jsx";
 
-const IncomesList = () => {
+const ExpensesList = () => {
     const { accountId } = useParams();
     const { token } = useAuth();
 
-    const [incomes, setIncomes] = useState([]);
+    const [expenses, setExpenses] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
     const [pageNumber, setPageNumber] = useState(1);
     const [pageSize, setPageSize] = useState(10);
 
     const [modalOpen, setModalOpen] = useState(false);
-    const [incomeIdToDelete, setIncomeIdToDelete] = useState(null);
+    const [expenseIdToDelete, setExpenseIdToDelete] = useState(null);
 
     const [sortConfig, setSortConfig] = useState({
         key: "Date",
@@ -46,9 +46,9 @@ const IncomesList = () => {
         }
     };
 
-    const loadIncomesData = async () => {
+    const loadExpensesData = async () => {
         try {
-            const response = await fetchIncomes({
+            const response = await fetchExpenses({
                 token,
                 accountId,
                 pageNumber,
@@ -59,23 +59,23 @@ const IncomesList = () => {
                 endDate,
                 selectedCategory,
             });
-            setIncomes(response.items);
+            setExpenses(response.items);
             setTotalPages(response.totalPages);
         } catch (error) {
-            console.error("Error while fetching incomes:", error);
+            console.error("Error while fetching expenses:", error);
         }
     };
 
     useEffect(() => {
         if (token && accountId) {
             loadCategories();
-            loadIncomesData();
+            loadExpensesData();
         }
     }, [token, accountId]);
 
     useEffect(() => {
         if (token && accountId) {
-            loadIncomesData();
+            loadExpensesData();
         }
     }, [
         pageNumber,
@@ -87,8 +87,8 @@ const IncomesList = () => {
         selectedCategory,
     ]);
 
-    const handleDeleteIncome = (incomeId) => {
-        setIncomeIdToDelete(incomeId);
+    const handleDeleteExpense = (expenseId) => {
+        setExpenseIdToDelete(expenseId);
         setModalOpen(true);
     };
     const handleSort = (key) => {
@@ -103,8 +103,8 @@ const IncomesList = () => {
     return (
         <div className="table-container">
             <h1 className="base-header">
-                <i className="fa-solid fa-arrow-trend-up"></i>
-                Incomes
+                <i className="fa-solid fa-arrow-trend-down"></i>
+                Expenses
             </h1>
 
             <FilterPanel
@@ -131,15 +131,15 @@ const IncomesList = () => {
                 categories={categories}
             />
 
-            {incomes.length === 0 ? (
-                <p>No incomes found.</p>
+            {expenses.length === 0 ? (
+                <p>No expenses found.</p>
             ) : (
                 <>
-                    <IncomesTable
-                        incomes={incomes}
+                    <ExpensesTable
+                        expenses={expenses}
                         sortConfig={sortConfig}
                         onSort={handleSort}
-                        onDelete={handleDeleteIncome}
+                        onDelete={handleDeleteExpense}
                     />
                     <Pagination
                         currentPage={pageNumber}
@@ -153,16 +153,16 @@ const IncomesList = () => {
                         isOpen={modalOpen}
                         onClose={() => setModalOpen(false)}
                         onConfirm={() => {
-                            deleteIncome({
+                            deleteExpense({
                                 accountId,
-                                incomeIdToDelete,
+                                expenseIdToDelete,
                                 token,
-                                fetchIncomes,
+                                fetchExpenses,
                                 setModalOpen,
-                                setIncomeIdToDelete,
+                                setExpenseIdToDelete,
                             });
                         }}
-                        objectTypeName="income"
+                        objectTypeName="expense"
                     />
                 </>
             )}
@@ -170,4 +170,4 @@ const IncomesList = () => {
     );
 };
 
-export default IncomesList;
+export default ExpensesList;

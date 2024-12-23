@@ -1,21 +1,21 @@
 ﻿import React from "react";
 
-const IncomesTableRow = ({ income, onDelete }) => {
-    const categoryName = income.category ? income.category.name : "No category";
-    const formattedDate = new Date(income.date).toLocaleString();
+const ExpensesTableRow = ({ expense, onDelete }) => {
+    const categoryName = expense.category ? expense.category.name : "No category";
+    const formattedDate = new Date(expense.date).toLocaleString();
 
     const handleDeleteClick = (e) => {
         e.stopPropagation();
-        onDelete(income.id);
+        onDelete(expense.id);
     };
 
     return (
         <tr>
-            <td>{income.title}</td>
-            <td>{income.amount}</td>
+            <td>{expense.title}</td>
+            <td>{expense.amount}</td>
             <td>{formattedDate}</td>
             <td>{categoryName}</td>
-            <td>{income.description}</td>
+            <td>{expense.description}</td>
             <td>
                 <button onClick={handleDeleteClick} className="delete-button">
                     DELETE
@@ -25,4 +25,4 @@ const IncomesTableRow = ({ income, onDelete }) => {
     );
 };
 
-export default IncomesTableRow;
+export default ExpensesTableRow;

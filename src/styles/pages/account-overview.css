@@ -258,16 +258,6 @@
     margin-bottom: 20px;
 }
 
-.categories-overview-section {
-    flex: 1;
-    background-color: #262626;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-}
-
 @media (max-width: 850px) {
     .middle-section-container {
         flex-direction: column;
