@@ -8,4 +8,25 @@
     return days;
 };
 
+export function getDefaultStartDate() {
+    const now = new Date();
+    now.setDate(1);
+    return now.toISOString().split("T")[0];
+}
+
+export function getDefaultEndDate() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+
+    const lastDay = new Date(year, month + 1, 0);
+
+    return lastDay.toISOString().split("T")[0];
+}
+
+export function getTodayDate() {
+    const now = new Date();
+    return now.toISOString().split("T")[0];
+}
+
 export { generateDaysInMonth };

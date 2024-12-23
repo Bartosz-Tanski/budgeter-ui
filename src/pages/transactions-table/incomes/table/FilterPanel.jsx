@@ -1,49 +1,41 @@
-﻿import React from "react";
-import SearchBar from "../../../../common/components/SearchBar.jsx";
+﻿import React, {useState} from "react";
+import SearchBar from "../../../../common/components/table/SearchBar.jsx";
+import {getDefaultStartDate, getTodayDate} from "../../../../common/helpers/dateHelper.js";
 
 const FilterPanel = ({
                          searchQuery,
                          onSearchChange,
 
-                         startDate,
-                         onStartDateChange,
-
-                         endDate,
-                         onEndDateChange,
-
                          selectedCategory,
                          onCategoryChange,
                          categories,
                      }) => {
+    const [startDate, setStartDate] = useState(getDefaultStartDate());
+    const [todayDate, setTodayDate] = useState(getTodayDate());
+
     return (
         <div className="filter-section">
-            <SearchBar
-                value={searchQuery}
-                onChange={(query) => onSearchChange(query)}
-            />
+            <div className="filter-left">
+                <SearchBar
+                    value={searchQuery}
+                    onChange={(val) => onSearchChange(val)}
+                />
+            </div>
 
-            <div className="filter-group">
-                <label className="filter-label">Date from:</label>
+            <div className="filter-right">
                 <input
                     type="date"
-                    className="filter-input"
+                    className="filter-input date-input"
                     value={startDate}
-                    onChange={(e) => onStartDateChange(e.target.value)}
+                    onChange={(e) => setStartDate(e.target.value)}
                 />
-            </div>
-
-            <div className="filter-group">
-                <label className="filter-label">Date to:</label>
                 <input
                     type="date"
-                    className="filter-input"
-                    value={endDate}
-                    onChange={(e) => onEndDateChange(e.target.value)}
+                    className="filter-input date-input"
+                    value={todayDate}
+                    onChange={(e) => setTodayDate(e.target.value)}
                 />
-            </div>
 
-            <div className="filter-group">
-                <label className="filter-label">Category:</label>
                 <select
                     className="filter-select"
                     value={selectedCategory}

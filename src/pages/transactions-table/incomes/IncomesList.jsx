@@ -1,9 +1,9 @@
 ﻿import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext.jsx";
-import Pagination from "../../../common/components/Pagination.jsx";
+import Pagination from "../../../common/components/table/Pagination.jsx";
 import IncomesTable from "./table/IncomesTable.jsx";
-import IncomesFilterPanel from "./table/FilterPanel.jsx";
+import FilterPanel from "./table/FilterPanel.jsx";
 
 import { fetchCategories, fetchIncomes } from "./../../../common/helpers/incomesHelper.js";
 
@@ -96,10 +96,11 @@ const IncomesList = () => {
     return (
         <div className="table-container">
             <h1 className="base-header">
-                <i className="fa-solid fa-money-bill"></i> Incomes
+                <i className="fa-solid fa-arrow-trend-up"></i>
+                Incomes
             </h1>
 
-            <IncomesFilterPanel
+            <FilterPanel
                 searchQuery={searchQuery}
                 onSearchChange={(val) => {
                     setSearchQuery(val);

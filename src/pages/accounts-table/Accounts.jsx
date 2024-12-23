@@ -1,8 +1,8 @@
 ﻿import React from "react";
 import {Link, useNavigate} from "react-router-dom";
-import SearchBar from "../../common/components/SearchBar.jsx";
+import SearchBar from "../../common/components/table/SearchBar.jsx";
 import AccountsTable from "./table/AccountsTable.jsx";
-import Pagination from "../../common/components/Pagination.jsx";
+import Pagination from "../../common/components/table/Pagination.jsx";
 import ConfirmModal from "./form/ConfirmModal.jsx";
 import {deleteAccount, fetchAccounts, updateAccount} from "../../common/handlers/accountHandlers.js";
 import EditModal from "./form/EditModal.jsx";
@@ -64,10 +64,16 @@ const Accounts = () => {
                     {selectedAccount.currencyCode}
                 </p>
             )}
-            <SearchBar
-                value={searchQuery}
-                onChange={(query) => setSearchQuery(query)}
-            />
+
+
+            <div className="filter-section">
+                <div className="filter-left">
+                    <SearchBar
+                        value={searchQuery}
+                        onChange={(query) => setSearchQuery(query)} />
+                </div>
+            </div>
+
             {accounts.length === 0 ? (
                 <p>
                     No accounts found. Please{" "}

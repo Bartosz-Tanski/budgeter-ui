@@ -2,12 +2,12 @@
 
 const SearchBar = ({ value, onChange }) => {
     return (
-        <div className="search-bar">
-            <i className="fa-solid fa-magnifying-glass"></i>
+        <div className="search-container">
+            <i className="fa fa-search search-icon"></i>
             <input
                 className="search-input"
                 type="text"
-                placeholder="Search by name..."
+                placeholder="Search..."
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
             />
