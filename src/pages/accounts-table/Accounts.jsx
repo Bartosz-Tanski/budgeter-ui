@@ -3,7 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import SearchBar from "../../common/components/table/SearchBar.jsx";
 import AccountsTable from "./table/AccountsTable.jsx";
 import Pagination from "../../common/components/table/Pagination.jsx";
-import ConfirmModal from "./form/ConfirmModal.jsx";
+import ConfirmModal from "../../common/components/table/ConfirmModal.jsx";
 import {deleteAccount, fetchAccounts, updateAccount} from "../../common/handlers/accountHandlers.js";
 import EditModal from "./form/EditModal.jsx";
 import {useEffect, useState} from "react";

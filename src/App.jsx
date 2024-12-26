@@ -9,6 +9,7 @@ import CreateAccount from "./pages/accounts-table/form/CreateAccount.jsx";
 import AccountOverview from "./pages/account-overview/AccountOverview.jsx";
 import IncomesList from "./pages/transactions-table/incomes/IncomesList.jsx";
 import ExpensesList from "./pages/transactions-table/expenses/ExpensesList.jsx";
+import Categories from "./pages/categories-table/Categories.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();
@@ -41,6 +42,7 @@ const App = () => {
                         <Route path="/create-account" element={<CreateAccount />} />
                         <Route path="/accounts/:accountId/expenses" element={<ExpensesList />} />
                         <Route path="/accounts/:accountId/incomes" element={<IncomesList />} />
+                        <Route path="/accounts/:accountId/categories" element={<Categories />} />
                         <Route path="*" element={<Navigate to="/accounts" />} />
                     </>
                 )}

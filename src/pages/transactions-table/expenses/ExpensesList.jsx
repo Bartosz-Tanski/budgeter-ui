@@ -6,7 +6,7 @@ import ExpensesTable from "./table/ExpensesTable.jsx";
 import FilterPanel from "./../../../common/components/table/FilterPanel.jsx";
 
 import { fetchCategories, fetchExpenses } from "./../../../common/helpers/expensesHelper.js";
-import ConfirmModal from "../../accounts-table/form/ConfirmModal.jsx";
+import ConfirmModal from "../../../common/components/table/ConfirmModal.jsx";
 
 const ExpensesList = () => {
     const { accountId } = useParams();
