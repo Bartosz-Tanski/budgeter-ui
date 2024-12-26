@@ -6,7 +6,7 @@ import IncomesTable from "./table/IncomesTable.jsx";
 import FilterPanel from "../../../common/components/table/FilterPanel.jsx";
 
 import { fetchCategories, fetchIncomes } from "./../../../common/helpers/incomesHelper.js";
-import ConfirmModal from "../../accounts-table/form/ConfirmModal.jsx";
+import ConfirmModal from "../../../common/components/table/ConfirmModal.jsx";
 
 const IncomesList = () => {
     const { accountId } = useParams();
