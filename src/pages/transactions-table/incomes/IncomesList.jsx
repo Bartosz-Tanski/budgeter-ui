@@ -5,7 +5,7 @@ import Pagination from "../../../common/components/table/Pagination.jsx";
 import IncomesTable from "./table/IncomesTable.jsx";
 import FilterPanel from "../../../common/components/table/FilterPanel.jsx";
 
-import { fetchCategories, fetchIncomes } from "./../../../common/helpers/incomesHelper.js";
+import { fetchCategoriesList, fetchIncomes } from "./../../../common/helpers/incomesHelper.js";
 import ConfirmModal from "../../../common/components/table/ConfirmModal.jsx";
 
 const IncomesList = () => {
@@ -36,7 +36,7 @@ const IncomesList = () => {
 
     const loadCategories = async () => {
         try {
-            const data = await fetchCategories({
+            const data = await fetchCategoriesList({
                 token,
                 accountId,
             });

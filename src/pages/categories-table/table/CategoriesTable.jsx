@@ -2,7 +2,7 @@ import React from "react";
 import CategoriesTableHeader from "./CategoriesTableHeader.jsx";
 import CategoriesTableRow from "./CategoriesTableRow.jsx";
 
-const CategoriesTable = ({ categories, onDelete, onSort, sortConfig }) => {
+const CategoriesTable = ({ categories, onDelete, onEdit, onSort, sortConfig }) => {
     return (
         <table className="table">
             <thead>
@@ -13,6 +13,7 @@ const CategoriesTable = ({ categories, onDelete, onSort, sortConfig }) => {
                 <CategoriesTableRow
                     key={category.id}
                     category={category}
+                    onEdit={onEdit}
                     onDelete={onDelete}
                 />
             ))}

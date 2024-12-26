@@ -1,6 +1,6 @@
 ﻿import { useState, useCallback } from "react";
 
-const useModalState = (account, isOpen) => {
+const useAccountModalState = (account, isOpen) => {
     const [formData, setFormData] = useState({
         name: "",
         balance: "",
@@ -29,4 +29,29 @@ const useModalState = (account, isOpen) => {
     return { formData, errors, setErrors, updateFormData, initializeForm };
 };
 
-export default useModalState;
+export const useCategoryModalState = (category, isOpen) => {
+    const [formData, setFormData] = useState({
+        name: "",
+    });
+    const [errors, setErrors] = useState({});
+
+    const initializeForm = useCallback((category) => {
+        if (category && isOpen) {
+            setFormData({
+                name: category.name || "",
+            });
+            setErrors(category.errors || {});
+        }
+    }, [isOpen]);
+
+    const updateFormData = (key, value) => {
+        setFormData((prev) => ({
+            ...prev,
+            [key]: value,
+        }));
+    };
+
+    return { formData, errors, setErrors, updateFormData, initializeForm };
+};
+
+export default useAccountModalState;

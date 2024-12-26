@@ -28,7 +28,6 @@ export async function fetchCategories({
         }
     );
 
-    console.log(response.data);
     return response.data;
 }
 
@@ -59,3 +58,38 @@ export async function deleteCategory({
         alert("Failed to delete category. Please try again later.");
     }
 }
+
+export const updateCategory = async ({
+                                         accountId,
+                                         updatedCategory,
+                                         token,
+                                         fetchCategories,
+                                         setEditModalOpen,
+                                         setCategoryToEdit,
+                                     }) => {
+    try {
+        await axios.patch(
+            `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/${updatedCategory.id}`,
+            updatedCategory,
+            {headers: {Authorization: `Bearer ${token}`}}
+        );
+        fetchCategories();
+        setEditModalOpen(false);
+        setCategoryToEdit(null);
+    } catch (err) {
+        console.error("Error updating account:", err);
+        if (err.response) {
+            if (typeof err.response.data === "string") {
+                setCategoryToEdit((prev) => ({
+                    ...prev,
+                    errors: {Name: err.response.data},
+                }));
+            } else if (err.response.data.errors) {
+                setCategoryToEdit((prev) => ({
+                    ...prev,
+                    errors: err.response.data.errors,
+                }));
+            }
+        }
+    }
+};

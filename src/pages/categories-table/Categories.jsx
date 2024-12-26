@@ -5,7 +5,8 @@ import SearchBar from "../../common/components/table/SearchBar.jsx";
 import Pagination from "../../common/components/table/Pagination.jsx";
 import CategoriesTable from "./table/CategoriesTable.jsx";
 import ConfirmModal from "../../common/components/table/ConfirmModal.jsx";
-import { fetchCategories, deleteCategory } from "../../common/handlers/categoryHandlers.js";
+import {deleteCategory, fetchCategories, updateCategory} from "../../common/handlers/categoryHandlers.js";
+import EditCategoryModal from "./form/EditCategoryModal.jsx";
 
 const Categories = () => {
     const { token, refreshAccessToken } = useAuth();
@@ -16,8 +17,12 @@ const Categories = () => {
     const [pageNumber, setPageNumber] = useState(1);
     const [pageSize, setPageSize] = useState(10);
     const [totalPages, setTotalPages] = useState(1);
-    const [modalOpen, setModalOpen] = useState(false);
     const [categoryIdToDelete, setCategoryIdToDelete] = useState(null);
+
+    const [editModalOpen, setEditModalOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [categoryToEdit, setCategoryToEdit] = useState(null);
+
 
     const loadCategories = async () => {
         try {
@@ -67,6 +72,10 @@ const Categories = () => {
             ) : (
                 <CategoriesTable
                     categories={categories}
+                    onEdit={(category) => {
+                        setCategoryToEdit(category);
+                        setEditModalOpen(true);
+                    }}
                     onDelete={(categoryId) => {
                         setCategoryIdToDelete(categoryId);
                         setModalOpen(true);
@@ -98,6 +107,23 @@ const Categories = () => {
                     });
                 }}
                 objectTypeName="category"
+            />
+
+            <EditCategoryModal
+                isOpen={editModalOpen}
+                onClose={() => setEditModalOpen(false)}
+                category={categoryToEdit}
+                onSubmit={(updatedCategory) => {
+                    updateCategory({
+                        accountId,
+                        updatedCategory,
+                        token,
+                        fetchCategories: loadCategories,
+                        setEditModalOpen,
+                        setCategoryToEdit,
+                    });
+                }}
+                token={token}
             />
         </div>
     );
