@@ -1,10 +1,19 @@
 import React from "react";
 
-const CategoriesTableRow = ({ category, onDelete }) => {
+const CategoriesTableRow = ({ category, onEdit, onDelete }) => {
     return (
         <tr>
             <td>{category.name}</td>
             <td>
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        onEdit(category);
+                    }}
+                    className="edit-button"
+                >
+                    EDIT
+                </button>
                 <button
                     onClick={(e) => {
                         e.stopPropagation();

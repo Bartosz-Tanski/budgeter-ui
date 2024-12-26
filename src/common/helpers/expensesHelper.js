@@ -1,6 +1,6 @@
 ﻿import axios from "axios";
 
-export async function fetchCategories({ token, accountId }) {
+export async function fetchCategoriesList({ token, accountId }) {
     const response = await axios.get(
         `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/all`,
         {

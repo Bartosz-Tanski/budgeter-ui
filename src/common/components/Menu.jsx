@@ -144,7 +144,7 @@ const Menu = ({ onLogout }) => {
                             </span>
                             {openDropdown === "categories" && (
                                 <div className="dropdown">
-                                    <Link to="/accounts" className="dropdown-item">
+                                    <Link to={`/accounts/${accountId}/categories`} className="dropdown-item">
                                         View Categories
                                     </Link>
                                     <Link to="/accounts" className="dropdown-item">
