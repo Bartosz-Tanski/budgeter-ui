@@ -1,18 +1,18 @@
 ﻿import React from "react";
 
-const LimitDetails = ({limit, spent, remaining, currencyCode}) => {
+const LimitInformation = ({limit, spent, remaining, currencyCode}) => {
     return (
         <div className="limit-details">
             <p>
-                <span className="account-details-label">Set Limit:</span>
+                <span className="details-label">Set Limit:</span>
                 <span>{" " + limit.toLocaleString()} {currencyCode}</span>
             </p>
             <p>
-                <span className="account-details-label">Spent This Month:</span>
+                <span className="details-label">Spent This Month:</span>
                 <span>{" " + spent.toLocaleString()} {currencyCode}</span>
             </p>
             <p>
-                <span className="account-details-label">Remaining:</span>
+                <span className="details-label">Remaining:</span>
                 <span
                     className={`${remaining === 0 ? "limit-exceeded" : ""}`}>{" " + remaining.toLocaleString()} {currencyCode}</span>
             </p>
@@ -20,4 +20,4 @@ const LimitDetails = ({limit, spent, remaining, currencyCode}) => {
     )
 }
 
-export default LimitDetails;
+export default LimitInformation;

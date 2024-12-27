@@ -4,9 +4,9 @@ import "react-circular-progressbar/dist/styles.css";
 import "../../../styles/pages/account-overview.css";
 import {useAuth} from "../../../context/AuthContext.jsx";
 import LimitOverviewProgressbar from "./LimitOverviewProgressbar.jsx";
-import LimitDetails from "./LimitDetails.jsx";
+import LimitInformation from "./LimitInformation.jsx";
 
-const LimitOverview = ({accountId, currencyCode}) => {
+const MonthlyLimit = ({accountId, currencyCode}) => {
     const {token} = useAuth();
     const [limit, setLimit] = useState(null);
     const [spent, setSpent] = useState(0);
@@ -18,7 +18,7 @@ const LimitOverview = ({accountId, currencyCode}) => {
             try {
                 setLoading(true);
 
-                // Fetch the spending limit
+                // Fetch the spending limit-overview
                 const limitResponse = await axios.get(
                     `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/limit`,
                     {
@@ -53,7 +53,7 @@ const LimitOverview = ({accountId, currencyCode}) => {
                 setSpent(parseFloat(expensesResponse.data.toFixed(2)));
             } catch (err) {
                 console.error(err);
-                setError("Error fetching limit or spending data.");
+                setError("Error fetching limit-overview or spending data.");
             } finally {
                 setLoading(false);
             }
@@ -88,10 +88,10 @@ const LimitOverview = ({accountId, currencyCode}) => {
             {limit ? (
                 <>
                     <LimitOverviewProgressbar percentage={percentage} />
-                    <LimitDetails limit={limit}
-                                  remaining={remaining}
-                                  currencyCode={currencyCode}
-                                  spent={spent} />
+                    <LimitInformation limit={limit}
+                                      remaining={remaining}
+                                      currencyCode={currencyCode}
+                                      spent={spent} />
                 </>
             ) : (
                 <>
@@ -103,4 +103,4 @@ const LimitOverview = ({accountId, currencyCode}) => {
     );
 };
 
-export default LimitOverview;
+export default MonthlyLimit;

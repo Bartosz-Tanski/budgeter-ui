@@ -1,0 +1,36 @@
+.limit-summary-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+}
+
+.limit-summary-header {
+    font-size: 24px;
+    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
+.limit-progress-bar {
+    width: 150px;
+    margin: 20px auto;
+}
+
+.limit-details {
+    font-size: 16px;
+    text-align: left;
+}
+
+.limit-details .details-label {
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+.limit-details .limit-exceeded {
+    font-weight: bold;
+    color: #f44336;
+}

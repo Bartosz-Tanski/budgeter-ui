@@ -51,11 +51,11 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
             {topExpenses.length === 0 ?
                 (<p>No expenses categories found.</p>) :
                 (<div className="top-categories">
-                        <h3 className="account-details-label">Top 3 Expenses</h3>
+                        <h3 className="details-label">Top 3 Expenses</h3>
                         <ol>
                             {topExpenses.map((expense, index) => (
                                 <li key={index}>
-                                    <span className="account-details-label">{expense.categoryName}:</span>
+                                    <span className="details-label">{expense.categoryName}:</span>
                                     <span>{" " + expense.totalAmount} {currencyCode} </span>
                                 </li>
                             ))}
@@ -67,11 +67,11 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
             {topIncomes.length === 0 ?
                 (<p>No incomes categories found.</p>) :
                 (<div className="top-categories">
-                        <h3 className="account-details-label">Top 3 Incomes</h3>
+                        <h3 className="details-label">Top 3 Incomes</h3>
                         <ol>
                             {topIncomes.map((income, index) => (
                                 <li key={index}>
-                                    <span className="account-details-label">{income.categoryName}: </span>
+                                    <span className="details-label">{income.categoryName}: </span>
                                     <span> {" " + income.totalAmount.toFixed(2)} {currencyCode} </span>
                                 </li>
                             ))}

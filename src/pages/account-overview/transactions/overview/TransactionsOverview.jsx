@@ -72,17 +72,17 @@ const TransactionsOverview = ({ accountId, currencyCode }) => {
             <h2 className="base-header">Transactions Overview</h2>
 
             <p>
-                <span className="account-details-label">Total Incomes: </span>
+                <span className="details-label">Total Incomes: </span>
                 <span>{" " + summary.totalIncomes.toLocaleString()} {currencyCode} </span>
             </p>
 
             <p>
-                <span className="account-details-label">Total Expenses: </span>
+                <span className="details-label">Total Expenses: </span>
                 <span>{" " + summary.totalExpenses.toLocaleString()} {currencyCode}</span>
             </p>
 
             <p>
-                <span className="account-details-label">Balance: </span>
+                <span className="details-label">Balance: </span>
                 <span>{" " + summary.balance.toLocaleString()} {currencyCode}</span>
             </p>
 

@@ -4,17 +4,17 @@ import { useAuth } from "../../../context/AuthContext.jsx";
 import SuccessMessage from "../../../common/components/SuccessMessage.jsx";
 import handleErrors from "../../../common/handlers/handleErrors.js";
 import {useParams} from "react-router-dom";
-import CategoryForm from "./CategoryForm.jsx";
+import LimitForm from "./LimitForm.jsx";
 
-const CreateCategory = () => {
+const CreateLimit = () => {
     const { token, refreshAccessToken } = useAuth();
     const { accountId } = useParams();
-    const [name, setName] = useState("");
+    const [amount, setAmount] = useState("");
     const [errors, setErrors] = useState({});
     const [success, setSuccess] = useState(false);
 
     const resetForm = () => {
-        setName("");
+        setAmount("");
     };
 
     const handleSubmit = async (e) => {
@@ -23,8 +23,8 @@ const CreateCategory = () => {
 
         try {
             await axios.post(
-                `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories`,
-                { name },
+                `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/limit`,
+                { amount: amount },
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -47,18 +47,18 @@ const CreateCategory = () => {
     return (
         <div className="form-container">
             <h1 className="base-header" hidden={success}>
-                <i className="fa-solid fa-folder-plus"></i>
-                Create Category
+                <i className="fa-solid fa-plus"></i>
+                Create Limit
             </h1>
 
             {success ? (
-                <SuccessMessage objectTypeName="category" accountId={accountId} />
+                <SuccessMessage objectTypeName="limit" accountId={accountId} />
             ) : (
-                <CategoryForm
+                <LimitForm
                     accountId={accountId}
                     formType="Create"
-                    name={name}
-                    setName={setName}
+                    amount={amount}
+                    setAmount={setAmount}
                     errors={errors}
                     handleSubmit={handleSubmit}
                 />
@@ -67,4 +67,4 @@ const CreateCategory = () => {
     );
 };
 
-export default CreateCategory;
+export default CreateLimit;
