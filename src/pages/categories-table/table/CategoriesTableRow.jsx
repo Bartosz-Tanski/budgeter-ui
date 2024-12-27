@@ -1,8 +1,8 @@
 import React from "react";
 
-const CategoriesTableRow = ({ category, onEdit, onDelete }) => {
+const CategoriesTableRow = ({ category, onEdit, onDelete, onClick }) => {
     return (
-        <tr>
+        <tr onClick={onClick}>
             <td>{category.name}</td>
             <td>
                 <button

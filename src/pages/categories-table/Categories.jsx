@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext.jsx";
-import { useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import SearchBar from "../../common/components/table/SearchBar.jsx";
 import Pagination from "../../common/components/table/Pagination.jsx";
 import CategoriesTable from "./table/CategoriesTable.jsx";
@@ -18,11 +18,19 @@ const Categories = () => {
     const [pageSize, setPageSize] = useState(10);
     const [totalPages, setTotalPages] = useState(1);
     const [categoryIdToDelete, setCategoryIdToDelete] = useState(null);
-
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [modalOpen, setModalOpen] = useState(false);
     const [categoryToEdit, setCategoryToEdit] = useState(null);
 
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const navigate = useNavigate();
+
+
+
+    const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+        navigate(`/accounts/${accountId}/categories/${category.id}`);
+    };
 
     const loadCategories = async () => {
         try {
@@ -72,6 +80,7 @@ const Categories = () => {
             ) : (
                 <CategoriesTable
                     categories={categories}
+                    onCategoryClick={handleCategorySelect}
                     onEdit={(category) => {
                         setCategoryToEdit(category);
                         setEditModalOpen(true);
