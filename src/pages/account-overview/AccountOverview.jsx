@@ -5,7 +5,7 @@ import {useAuth} from "../../context/AuthContext.jsx";
 import "../../styles/pages/account-overview.css";
 import {fetchCurrency} from "../../common/helpers/currenciesHelper.js";
 import TransactionList from "./transactions/recent/TransactionList.jsx";
-import LimitOverview from "./limit/LimitOverview.jsx";
+import MonthlyLimit from "./limit/MonthlyLimit.jsx";
 import TransactionsOverview from "./transactions/overview/TransactionsOverview.jsx";
 import CategoriesOverview from "./categories/CategoriesOverview.jsx";
 
@@ -43,27 +43,27 @@ const AccountOverview = () => {
     }
 
     return (
-        <div className="account-details-container">
+        <div className="details-container">
             <div className="upper-section-container">
                 <h1 className="base-header">
                     <i className="fa-solid fa-chart-pie"></i>
                     Account Overview
                 </h1>
 
-                <ul className="account-details-list">
+                <ul className="details-list">
                     <li>
-                        <span className="account-details-label">Name:</span>
-                        <span className="account-details-value">{account.name}</span>
+                        <span className="details-label">Name:</span>
+                        <span className="details-value">{account.name}</span>
                     </li>
                     <li>
-                        <span className="account-details-label">Balance:</span>
-                        <span className="account-details-value">
+                        <span className="details-label">Balance:</span>
+                        <span className="details-value">
                     {account.balance.toLocaleString()} {account.currencyCode}
                 </span>
                     </li>
                     <li>
-                        <span className="account-details-label">Currency:</span>
-                        <span className="account-details-value">{currencyName}</span>
+                        <span className="details-label">Currency:</span>
+                        <span className="details-value">{currencyName}</span>
                     </li>
                 </ul>
             </div>
@@ -75,7 +75,7 @@ const AccountOverview = () => {
                 </div>
 
                 <div className="limit-container">
-                    <LimitOverview accountId={accountId} currencyCode={account.currencyCode}/>
+                    <MonthlyLimit accountId={accountId} currencyCode={account.currencyCode}/>
                 </div>
             </div>
 

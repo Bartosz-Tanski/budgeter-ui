@@ -12,6 +12,8 @@ import ExpensesList from "./pages/transactions-table/expenses/ExpensesList.jsx";
 import Categories from "./pages/categories-table/Categories.jsx";
 import CreateCategory from "./pages/categories-table/form/CreateCategory.jsx";
 import CategoryOverview from "./pages/category-overview/CategoryOverview.jsx";
+import LimitOverview from "./pages/limit-overview/LimitOverview.jsx";
+import CreateLimit from "./pages/limit-overview/form/CreateLimit.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();
@@ -50,6 +52,10 @@ const App = () => {
                         <Route path="/accounts/:accountId/categories" element={<Categories />} />
                         <Route path="/accounts/:accountId/create-category" element={<CreateCategory />} />
                         <Route path="/accounts/:accountId/categories/:categoryId" element={<CategoryOverview />} />
+
+                        <Route path="/accounts/:accountId/limit" element={<LimitOverview />} />
+                        <Route path="/accounts/:accountId/create-limit" element={<CreateLimit />} />
+
 
                         <Route path="*" element={<Navigate to="/accounts" />} />
                     </>

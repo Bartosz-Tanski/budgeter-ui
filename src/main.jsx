@@ -13,6 +13,8 @@ import './styles/global/modals.css';
 import './styles/global/table.css';
 import './styles/layout/navigation.css';
 import './styles/pages/user-forms.css';
+import './styles/pages/limit-details.css';
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

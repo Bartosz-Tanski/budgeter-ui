@@ -1,4 +1,4 @@
-﻿.account-details-container {
+﻿.details-container {
     width: 100%;
     max-width: 1200px;
     margin: 50px auto;
@@ -9,7 +9,7 @@
     color: #fff;
 }
 
-.account-details-container i {
+.details-container i {
     margin-right: 15px;
     vertical-align: center;
 }
@@ -32,7 +32,7 @@
     letter-spacing: 1px;
 }
 
-.account-details-list {
+.details-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -41,7 +41,7 @@
     color: #eee;
 }
 
-.account-details-list li {
+.details-list li {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
@@ -49,17 +49,17 @@
     padding-bottom: 10px;
 }
 
-.account-details-list li:last-child {
+.details-list li:last-child {
     border-bottom: none;
     padding-bottom: 0;
 }
 
-.account-details-label {
+.details-label {
     font-weight: bold;
     color: #00bcd4;
 }
 
-.account-details-value {
+.details-value {
     text-align: right;
     color: #fff;
 }
@@ -257,6 +257,15 @@
     max-width: 100%;
     margin-bottom: 20px;
 }
+
+.no-limit-message {
+    font-size: 18px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+
 
 @media (max-width: 850px) {
     .middle-section-container {

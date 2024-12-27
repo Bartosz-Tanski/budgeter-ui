@@ -169,10 +169,10 @@ const Menu = ({ onLogout }) => {
                             </span>
                             {openDropdown === "limit" && (
                                 <div className="dropdown">
-                                    <Link to="/accounts" className="dropdown-item">
-                                        View Limits
+                                    <Link to={`/accounts/${accountId}/limit`} className="dropdown-item">
+                                        View Limit Details
                                     </Link>
-                                    <Link to="/accounts" className="dropdown-item">
+                                    <Link to={`/accounts/${accountId}/create-limit`} className="dropdown-item">
                                         Create Limit
                                     </Link>
                                 </div>

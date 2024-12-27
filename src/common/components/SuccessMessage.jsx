@@ -18,6 +18,14 @@ const displayMessage = (objectTypeName, accountId) => {
                 </Link>
             )
         }
+
+        case "limit": {
+            return (
+                <Link to={`/accounts/${accountId}/limit`} className="redirection-link">
+                    Go back to limit overview.
+                </Link>
+            )
+        }
     }
 }
 
