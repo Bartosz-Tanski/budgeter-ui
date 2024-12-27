@@ -29,14 +29,26 @@ const displayMessage = (objectTypeName, accountId) => {
     }
 }
 
+const displayIcon = (objectTypeName) => {
+    switch (objectTypeName) {
+        case "account": {
+            return <i className="fa-solid fa-building-columns"></i>
+        }
+
+        case "category": {
+            return <i className="fa-solid fa-folder-plus"></i>
+        }
+
+        case "limit": {
+            return <i className="fa-solid fa-check"></i>
+        }
+    }
+}
+
 const SuccessMessage = ({objectTypeName, accountId}) => (
     <div>
         <h1 className="base-header">
-            {
-                objectTypeName === "account" ?
-                    (<i className="fa-solid fa-building-columns"></i>) :
-                    (<i className="fa-solid fa-folder-plus"></i>)
-            }
+            {displayIcon(objectTypeName)}
             {objectTypeName} Created!
         </h1>
         <p>
