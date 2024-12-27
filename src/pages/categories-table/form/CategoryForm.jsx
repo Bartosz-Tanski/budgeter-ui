@@ -3,12 +3,13 @@ import InputField from "../../../common/components/InputField.jsx";
 import {Link} from "react-router-dom";
 
 const CategoryForm = ({
-                         formType,
-                         name,
-                         setName,
-                         errors,
-                         handleSubmit,
-                     }) => (
+                          formType,
+                          name,
+                          setName,
+                          errors,
+                          handleSubmit,
+                          accountId,
+                      }) => (
     <form onSubmit={handleSubmit}>
         <InputField
             type="text"
@@ -23,8 +24,8 @@ const CategoryForm = ({
                 <span className="error-message">{errors.general}</span>
             </div>
         )}
-        <button hidden={formType !== "Create"} type="submit">Create Account</button>
-        <Link className="redirection-link" to={"/accounts-table"}>
+        <button hidden={formType !== "Create"} type="submit">Create Category</button>
+        <Link className="redirection-link" to={`/accounts/${accountId}/categories`} >
             {formType === "Edit" ? ("") : (<p> Back </p>)}
         </Link>
     </form>
