@@ -37,7 +37,10 @@ const RegisterForm = () => {
     if (success) {
         return (
             <div className="form-container">
-                <h2>Registration Successful!</h2>
+                <h1 className="base-header">
+                    <i className="fa-solid fa-user-check"></i>
+                    User Registered!
+                </h1>
                 <p>
                     Your account has been created.{" "}
                     <Link to="/" className="redirection-link">

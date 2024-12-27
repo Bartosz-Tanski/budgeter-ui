@@ -56,7 +56,7 @@ const Categories = () => {
     return (
         <div className="table-container">
             <h1 className="base-header">
-                <i className="fa-solid fa-tags"></i>
+                <i className="fa-solid fa-folder"></i>
                 Categories
             </h1>
 
