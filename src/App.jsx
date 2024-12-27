@@ -11,6 +11,7 @@ import IncomesList from "./pages/transactions-table/incomes/IncomesList.jsx";
 import ExpensesList from "./pages/transactions-table/expenses/ExpensesList.jsx";
 import Categories from "./pages/categories-table/Categories.jsx";
 import CreateCategory from "./pages/categories-table/form/CreateCategory.jsx";
+import CategoryOverview from "./pages/category-overview/CategoryOverview.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();
@@ -39,8 +40,8 @@ const App = () => {
                 ) : (
                     <>
                         <Route path="/accounts" element={<Accounts />} />
-                        <Route path="/accounts/:accountId" element={<AccountOverview />} />
                         <Route path="/create-account" element={<CreateAccount />} />
+                        <Route path="/accounts/:accountId" element={<AccountOverview />} />
 
                         <Route path="/accounts/:accountId/expenses" element={<ExpensesList />} />
 
@@ -48,6 +49,7 @@ const App = () => {
 
                         <Route path="/accounts/:accountId/categories" element={<Categories />} />
                         <Route path="/accounts/:accountId/create-category" element={<CreateCategory />} />
+                        <Route path="/accounts/:accountId/categories/:categoryId" element={<CategoryOverview />} />
 
                         <Route path="*" element={<Navigate to="/accounts" />} />
                     </>
