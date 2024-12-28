@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthContext.jsx";
 import LimitProgressBar from "./details/LimitProgressBar.jsx";
 import LimitDetails from "./details/LimitDetails.jsx";
 import { fetchLimitAndCurrencyData } from "../../common/handlers/limitHandlers.js";
+import ChartsSection from "./details/ChartSection.jsx";
 
 const LimitOverview = () => {
     const [limit, setLimit] = useState(null);
@@ -34,7 +35,7 @@ const LimitOverview = () => {
 
     return (
         <div className="details-container">
-            <div className="upper-section-container">
+            <div className="limit-upper-section-container">
                 <h1 className="base-header">
                     <i className="fa-regular fa-hourglass-half"></i>
                     Limit Summary
@@ -52,6 +53,10 @@ const LimitOverview = () => {
                         />
                     </>
                 )}
+            </div>
+
+            <div className="middle-section-container">
+                <ChartsSection accountId={accountId} />
             </div>
         </div>
     );
