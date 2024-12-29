@@ -14,6 +14,19 @@ const fetchCurrency = async (currencyCode) => {
     return response.data;
 };
 
+export const fetchCurrencyByAccountId = async (accountId, token) => {
+    const accountResponse = await axios.get(
+        `https://budgeter-api.azurewebsites.net/api/user/accounts/${accountId}`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
+    return accountResponse.data.currencyCode;
+};
+
 export { currenciesHelper, fetchCurrency };
 
 export default currenciesHelper;
