@@ -183,13 +183,11 @@ const ChartsSection = ({ accountId, currencyCode }) => {
                 borderColor: "#f44336",
                 tension: 0.2,
                 fill: false,
-                pointBackgroundColor: "#f44336",
-                pointBorderColor: "#fff",
                 pointHoverBackgroundColor: "#fff",
                 pointHoverBorderColor: "#f44336",
-                pointRadius: 5, // Większy rozmiar punktów
-                pointHoverRadius: 8, // Większy punkt podczas hovera
-                pointHitRadius: 12, // Większy obszar interakcji
+                pointRadius: 5,
+                pointHoverRadius: 8,
+                pointHitRadius: 100,
             },
         ],
     };
