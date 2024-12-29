@@ -93,3 +93,84 @@ export const updateCategory = async ({
         }
     }
 };
+
+export const fetchCategoryDetails = async (accountId, categoryId, token) => {
+    try {
+        const categoryResponse = await fetch(
+            `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/${categoryId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        if (!categoryResponse.ok) {
+            throw new Error("Failed to fetch category details");
+        }
+
+        const categoryData = await categoryResponse.json();
+
+        const statsResponse = await fetch(
+            `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/stats`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        if (!statsResponse.ok) {
+            throw new Error("Failed to fetch category stats");
+        }
+
+        const statsData = await statsResponse.json();
+
+        const incomes = statsData.filter(
+            (item) =>
+                item.categoryName === categoryData.name && item.type === "Income"
+        );
+        const expenses = statsData.filter(
+            (item) =>
+                item.categoryName === categoryData.name && item.type === "Expense"
+        );
+
+        const totalIncome = incomes.reduce((sum, item) => sum + item.totalAmount, 0);
+        const totalExpense = expenses.reduce((sum, item) => sum + item.totalAmount, 0);
+
+        const incomeTransactions = incomes.reduce(
+            (count, item) => count + item.numberOfTransactions,
+            0
+        );
+        const expenseTransactions = expenses.reduce(
+            (count, item) => count + item.numberOfTransactions,
+            0
+        );
+
+        const averageIncome =
+            incomeTransactions > 0
+                ? (totalIncome / incomeTransactions).toFixed(2)
+                : 0;
+        const averageExpense =
+            expenseTransactions > 0
+                ? (totalExpense / expenseTransactions).toFixed(2)
+                : 0;
+
+        return {
+            categoryName: categoryData.name,
+            incomeStats: {
+                total: totalIncome,
+                transactions: incomeTransactions,
+                average: averageIncome,
+            },
+            expenseStats: {
+                total: totalExpense,
+                transactions: expenseTransactions,
+                average: averageExpense,
+            },
+        };
+    } catch (err) {
+        throw new Error(err.message);
+    }
+};
+

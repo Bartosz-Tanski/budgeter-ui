@@ -14,6 +14,8 @@ import './styles/global/table.css';
 import './styles/layout/navigation.css';
 import './styles/pages/user-forms.css';
 import './styles/pages/limit-details.css';
+import './styles/pages/account-overview.css'
+import './styles/pages/category-overview.css'
 
 
 
