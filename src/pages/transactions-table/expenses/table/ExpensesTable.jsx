@@ -2,7 +2,7 @@
 import ExpensesTableHeader from "./ExpensesTableHeader.jsx";
 import ExpensesTableRow from "./ExpensesTableRow.jsx";
 
-const ExpensesTable = ({ expenses, sortConfig, onSort, onDelete }) => {
+const ExpensesTable = ({ expenses, sortConfig, onSort }) => {
     return (
         <table className="table">
             <thead>
@@ -13,7 +13,6 @@ const ExpensesTable = ({ expenses, sortConfig, onSort, onDelete }) => {
                 <ExpensesTableRow
                     key={expense.id}
                     expense={expense}
-                    onDelete={onDelete}
                 />
             ))}
             </tbody>

@@ -40,7 +40,12 @@ const TransactionList = ({ accountId, type, currencyCode }) => {
                 {type === "incomes" ? "Recent Incomes" : "Recent Expenses"}
             </h2>
             {transactions.length === 0 ? (
-                <p>No {type === "incomes" ? "incomes" : "expenses"} found.</p>
+                <p>
+                    No {type} found.
+                    <Link to={`/accounts/${accountId}/${type}/create`} className="redirection-link">
+                        {" "} Click here to add new.
+                    </Link>
+                </p>
             ) : (
                 <div className="transaction-items">
                     {transactions.map((transaction) => (

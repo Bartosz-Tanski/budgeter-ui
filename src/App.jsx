@@ -4,7 +4,7 @@ import { useAuth } from "./context/AuthContext";
 import LoginForm from "./pages/user/LoginForm.jsx";
 import RegisterForm from "./pages/user/RegisterForm.jsx";
 import Menu from "./common/components/Menu.jsx";
-import Accounts from "./pages/accounts-table/Accounts.jsx";
+import Accounts from "./pages/accounts-table/AccountsList.jsx";
 import CreateAccount from "./pages/accounts-table/form/CreateAccount.jsx";
 import AccountOverview from "./pages/account-overview/AccountOverview.jsx";
 import IncomesList from "./pages/transactions-table/incomes/IncomesList.jsx";
@@ -14,6 +14,8 @@ import CreateCategory from "./pages/categories-table/form/CreateCategory.jsx";
 import CategoryOverview from "./pages/category-overview/CategoryOverview.jsx";
 import LimitOverview from "./pages/limit-overview/LimitOverview.jsx";
 import CreateLimit from "./pages/limit-overview/form/CreateLimit.jsx";
+import AccountsList from "./pages/accounts-table/AccountsList.jsx";
+import CreateTransaction from "./pages/transactions-table/form/CreateTransaction.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();
@@ -41,13 +43,19 @@ const App = () => {
                     </>
                 ) : (
                     <>
-                        <Route path="/accounts" element={<Accounts />} />
+                        <Route path="/accounts" element={<AccountsList />} />
                         <Route path="/create-account" element={<CreateAccount />} />
                         <Route path="/accounts/:accountId" element={<AccountOverview />} />
 
                         <Route path="/accounts/:accountId/expenses" element={<ExpensesList />} />
+                        <Route
+                            path="/accounts/:accountId/expenses/create"
+                            element={<CreateTransaction transactionType="expense" />} />
 
                         <Route path="/accounts/:accountId/incomes" element={<IncomesList />} />
+                        <Route path="/accounts/:accountId/incomes/create"
+                               element={<CreateTransaction transactionType="income" />} />
+
 
                         <Route path="/accounts/:accountId/categories" element={<Categories />} />
                         <Route path="/accounts/:accountId/create-category" element={<CreateCategory />} />

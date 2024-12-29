@@ -66,29 +66,3 @@ export async function fetchIncomes({
 
     return response.data;
 }
-
-export async function deleteIncome({
-                                       accountId,
-                                       incomeIdToDelete,
-                                       token,
-                                       fetchIncomes,
-                                       setModalOpen,
-                                       setIncomeIdToDelete,
-                                   }) {
-    try {
-        await axios.delete(
-            `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/incomes/${incomeIdToDelete}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
-        await fetchIncomes();
-    } catch (error) {
-        console.error("Error deleting income:", error);
-    } finally {
-        setModalOpen(false);
-        setIncomeIdToDelete(null);
-    }
-}

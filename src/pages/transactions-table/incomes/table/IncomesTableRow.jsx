@@ -1,13 +1,8 @@
 ﻿import React from "react";
 
-const IncomesTableRow = ({ income, onDelete }) => {
+const IncomesTableRow = ({ income }) => {
     const categoryName = income.category ? income.category.name : "No category";
     const formattedDate = new Date(income.date).toLocaleString();
-
-    const handleDeleteClick = (e) => {
-        e.stopPropagation();
-        onDelete(income.id);
-    };
 
     return (
         <tr>
@@ -16,11 +11,6 @@ const IncomesTableRow = ({ income, onDelete }) => {
             <td>{formattedDate}</td>
             <td>{categoryName}</td>
             <td>{income.description}</td>
-            <td>
-                <button onClick={handleDeleteClick} className="delete-button">
-                    DELETE
-                </button>
-            </td>
         </tr>
     );
 };

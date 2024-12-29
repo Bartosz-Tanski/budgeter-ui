@@ -48,7 +48,7 @@ const Menu = ({ onLogout }) => {
 
                 {/* Standard Menu */}
                 <div className={`menu-items ${isMobileMenuOpen ? "mobile-open" : ""}`}>
-                    {/* Accounts Dropdown */}
+                    {/* AccountsList Dropdown */}
                     <div
                         className="menu-item"
                         onMouseEnter={() => setOpenDropdown("accounts")}
@@ -99,7 +99,7 @@ const Menu = ({ onLogout }) => {
                                                 <Link to={`/accounts/${accountId}/incomes`} className="dropdown-item">
                                                     View Incomes
                                                 </Link>
-                                                <Link to="/accounts" className="dropdown-item">
+                                                <Link to={`/accounts/${accountId}/incomes/create`} className="dropdown-item">
                                                     Create Income
                                                 </Link>
                                             </div>
@@ -120,7 +120,7 @@ const Menu = ({ onLogout }) => {
                                                 <Link to={`/accounts/${accountId}/expenses`} className="dropdown-item">
                                                     View Expenses
                                                 </Link>
-                                                <Link to="/accounts" className="dropdown-item">
+                                                <Link to={`/accounts/${accountId}/expenses/create`} className="dropdown-item">
                                                     Create Expense
                                                 </Link>
                                             </div>
