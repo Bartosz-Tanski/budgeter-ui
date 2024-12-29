@@ -56,7 +56,7 @@ const LimitOverview = () => {
             </div>
 
             <div className="middle-section-container">
-                <ChartsSection accountId={accountId} />
+                <ChartsSection accountId={accountId} currencyCode={currencyCode} />
             </div>
         </div>
     );
