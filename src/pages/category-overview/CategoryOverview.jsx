@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {useAuth} from "../../context/AuthContext.jsx";
 
@@ -12,6 +12,10 @@ const CategoryOverview = () => {
     return (
         <div className="details-container">
             <div className="upper-section-container">
+                <Link to={`/accounts/${accountId}/categories`} className="redirection-link">
+                    <i className="fa-solid fa-chevron-left"></i>
+                    Categories list
+                </Link>
                 <h1 className="base-header">
                     <i className="fa-solid fa-chart-pie"></i>
                     Category Overview

@@ -1,5 +1,5 @@
 ﻿import React, {useState, useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import {useAuth} from "../../context/AuthContext.jsx";
 import "../../styles/pages/account-overview.css";
@@ -45,6 +45,10 @@ const AccountOverview = () => {
     return (
         <div className="details-container">
             <div className="upper-section-container">
+                <Link to={"/accounts"} className="redirection-link">
+                    <i className="fa-solid fa-chevron-left"></i>
+                    Accounts list
+                </Link>
                 <h1 className="base-header">
                     <i className="fa-solid fa-chart-pie"></i>
                     Account Overview
