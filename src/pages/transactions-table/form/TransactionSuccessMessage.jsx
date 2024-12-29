@@ -30,15 +30,6 @@ const TransactionSuccessMessage = ({ transactionType, accountId }) => {
             >
                 Go back to {isIncome ? "Incomes" : "Expenses"} list
             </Link>
-
-            <br />
-
-            <Link
-                to={`/accounts/${accountId}/${isIncome ? "incomes" : "expenses"}/create`}
-                className="redirection-link"
-            >
-                Create another {isIncome ? "Income" : "Expense"}
-            </Link>
         </div>
     );
 };
