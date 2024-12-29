@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { useAuth } from "../../context/AuthContext.jsx";
 import LimitProgressBar from "./details/LimitProgressBar.jsx";
 import LimitDetails from "./details/LimitDetails.jsx";
@@ -41,7 +41,11 @@ const LimitOverview = () => {
 
     return (
         <div className="details-container">
-            <div className="limit-upper-section-container">
+            <div className="upper-section-container">
+                <Link to={`/accounts/${accountId}`} className="redirection-link">
+                    <i className="fa-solid fa-chevron-left"></i>
+                    Account overview
+                </Link>
                 <h1 className="base-header">
                     <i className="fa-regular fa-hourglass-half"></i>
                     Limit Summary

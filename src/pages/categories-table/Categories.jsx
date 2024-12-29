@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext.jsx";
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import SearchBar from "../../common/components/table/SearchBar.jsx";
 import Pagination from "../../common/components/table/Pagination.jsx";
 import CategoriesTable from "./table/CategoriesTable.jsx";
@@ -63,6 +63,10 @@ const Categories = () => {
 
     return (
         <div className="table-container">
+            <Link to={`/accounts/${accountId}`} className="redirection-link">
+                <i className="fa-solid fa-chevron-left"></i>
+                Account overview
+            </Link>
             <h1 className="base-header">
                 <i className="fa-solid fa-folder"></i>
                 Categories

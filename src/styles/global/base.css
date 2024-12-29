@@ -31,6 +31,7 @@ canvas {
 .redirection-link {
     color: #00bcd4;
     text-decoration: none;
+    font-style: italic;
 }
 
 .redirection-link:hover {

@@ -53,7 +53,7 @@ const TransactionItem = ({ transaction, type, currencyCode }) => {
             </p>
             <div className="transaction-item-bottom">
                 <span className="transaction-item-description"> {transaction?.description} </span>
-                <span className="transaction-item-category"> <Link className="redirection-link"> {transaction.category?.name} </Link> </span>
+                <span className="transaction-date"> {transaction.category?.name} </span>
             </div>
         </div>
     );

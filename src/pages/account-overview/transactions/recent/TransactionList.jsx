@@ -1,13 +1,13 @@
-﻿import React, { useEffect, useState } from "react";
+﻿import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import TransactionItem from "./TransactionItem.jsx";
-import { useAuth } from "../../../../context/AuthContext.jsx";
+import {useAuth} from "../../../../context/AuthContext.jsx";
 
-const TransactionList = ({ accountId, type, currencyCode }) => {
+const TransactionList = ({accountId, type, currencyCode}) => {
     const [transactions, setTransactions] = useState([]);
     const [totalItems, setTotalItems] = useState(0);
-    const { token } = useAuth();
+    const {token} = useAuth();
     const endpoint = `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/${type}`;
 
     useEffect(() => {
@@ -37,7 +37,12 @@ const TransactionList = ({ accountId, type, currencyCode }) => {
     return (
         <div className="overview-section">
             <h2 className="base-header">
-                {type === "incomes" ? "Recent Incomes" : "Recent Expenses"}
+                Recent
+                <Link
+                    to={`/accounts/${accountId}/${type}`}
+                    className="redirection-link">
+                    {` ${type}`}
+                </Link>
             </h2>
             {transactions.length === 0 ? (
                 <p>

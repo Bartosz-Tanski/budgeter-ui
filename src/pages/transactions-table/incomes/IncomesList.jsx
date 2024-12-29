@@ -1,5 +1,5 @@
 ﻿import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import { useAuth } from "../../../context/AuthContext.jsx";
 import Pagination from "../../../common/components/table/Pagination.jsx";
 import IncomesTable from "./table/IncomesTable.jsx";
@@ -102,6 +102,10 @@ const IncomesList = () => {
 
     return (
         <div className="table-container">
+            <Link to={`/accounts/${accountId}`} className="redirection-link">
+                <i className="fa-solid fa-chevron-left"></i>
+                Account overview
+            </Link>
             <h1 className="base-header">
                 <i className="fa-solid fa-arrow-trend-up"></i>
                 Incomes
