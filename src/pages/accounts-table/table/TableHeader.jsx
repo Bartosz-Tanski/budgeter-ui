@@ -31,7 +31,7 @@ const TableHeader = ({ onSort, sortConfig }) => {
             <th onClick={() => handleSort("CurrencyCode")}>
                 Currency Code {renderSortIndicator("CurrencyCode")}
             </th>
-            <th>Actions</th>
+            <th className="actions">Actions</th>
         </tr>
     );
 };

@@ -74,7 +74,7 @@
     transform: rotate(180deg);
 }
 
-.table th:last-child {
+.actions {
     pointer-events: none;
 }
 

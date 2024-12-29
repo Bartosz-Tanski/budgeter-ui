@@ -34,7 +34,6 @@ const ExpensesTableHeader = ({ sortConfig, onSort }) => {
             <th onClick={() => handleSortClick("Description")}>
                 Description {renderSortIndicator("Description")}
             </th>
-            <th>Actions</th>
         </tr>
     );
 };

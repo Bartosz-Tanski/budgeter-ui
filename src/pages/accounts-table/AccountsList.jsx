@@ -9,7 +9,7 @@ import EditModal from "./form/EditModal.jsx";
 import {useEffect, useState} from "react";
 import {useAuth} from "../../context/AuthContext.jsx";
 
-const Accounts = () => {
+const AccountsList = () => {
     const { token, refreshAccessToken } = useAuth();
     const [accounts, setAccounts] = useState([]);
     const [searchQuery, setSearchQuery] = useState("");
@@ -137,4 +137,4 @@ const Accounts = () => {
     );
 };
 
-export default Accounts;
+export default AccountsList;
