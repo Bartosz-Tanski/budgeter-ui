@@ -12,7 +12,7 @@ const CategoryInformation = ({ accountId, incomeStats, expenseStats, currencyCod
             <h1 className="base-header">
                 <i className="fa-solid fa-chart-pie"></i>
                 <span className="category-name-label">{`${categoryName} `}</span>
-                Category Overview:
+                Category Details:
             </h1>
 
             {incomeStats && expenseStats && (

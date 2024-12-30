@@ -83,7 +83,9 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
             {(topIncomes.length === 0 || topExpenses.length === 0) ?
                 (<></>) :
                 (<div className="overview-item">
-                    <CategoriesOverviewChart categoryStats={categoryStats} currencyCode={currencyCode}/>
+                    <div className="category-overview-chart">
+                        <CategoriesOverviewChart categoryStats={categoryStats} currencyCode={currencyCode}/>
+                    </div>
                 </div>)}
         </div>
     )

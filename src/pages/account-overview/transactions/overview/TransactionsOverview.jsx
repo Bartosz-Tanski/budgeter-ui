@@ -1,12 +1,12 @@
-﻿import React, { useEffect, useState } from "react";
+﻿import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { useAuth } from "../../../../context/AuthContext.jsx";
+import {useAuth} from "../../../../context/AuthContext.jsx";
 import {generateDaysInMonth} from "../../../../common/helpers/dateHelper.js";
 import TransactionsOverviewChart from "./TransactionsOverviewChart.jsx";
 
 
-const TransactionsOverview = ({ accountId, currencyCode }) => {
-    const { token } = useAuth();
+const TransactionsOverview = ({accountId, currencyCode}) => {
+    const {token} = useAuth();
     const [transactions, setTransactions] = useState([]);
     const [daysInMonth, setDaysInMonth] = useState([]);
     const [summary, setSummary] = useState({
@@ -24,14 +24,14 @@ const TransactionsOverview = ({ accountId, currencyCode }) => {
                 const incomesResponse = await axios.get(
                     `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/incomes?StartDate=${startDate}&EndDate=${endDate}`,
                     {
-                        headers: { Authorization: `Bearer ${token}` },
+                        headers: {Authorization: `Bearer ${token}`},
                     }
                 );
 
                 const expensesResponse = await axios.get(
                     `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/expenses?StartDate=${startDate}&EndDate=${endDate}`,
                     {
-                        headers: { Authorization: `Bearer ${token}` },
+                        headers: {Authorization: `Bearer ${token}`},
                     }
                 );
 
@@ -87,10 +87,12 @@ const TransactionsOverview = ({ accountId, currencyCode }) => {
             </p>
 
             <div className="overview-item">
-                <TransactionsOverviewChart
-                    daysInMonth={daysInMonth}
-                    transactions={transactions}
-                    currencyCode={currencyCode} />
+                <div className="transaction-overview-chart">
+                    <TransactionsOverviewChart
+                        daysInMonth={daysInMonth}
+                        transactions={transactions}
+                        currencyCode={currencyCode}/>
+                </div>
             </div>
         </div>
     );
