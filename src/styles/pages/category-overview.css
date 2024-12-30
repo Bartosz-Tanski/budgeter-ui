@@ -1,4 +1,12 @@
-﻿.stats-section {
+﻿.details-section {
+    top: 20px;
+    z-index: 900;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.stats-section {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -15,4 +23,15 @@
 .category-name-label {
     text-transform: uppercase;
     font-style: italic;
+}
+
+.left-chart-section,
+.right-chart-section  {
+    flex: 1;
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px inset rgba(0, 0, 0, 0.5);
+    height: 400px;
+    text-align: center;
 }

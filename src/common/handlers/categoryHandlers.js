@@ -173,4 +173,20 @@ export const fetchCategoryDetails = async (accountId, categoryId, token) => {
         throw new Error(err.message);
     }
 };
+export const fetchAllCategoriesStats = async (accountId, token) => {
+    const response = await fetch(
+        `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/stats`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch all categories stats");
+    }
+    return await response.json();
+};
+
 
