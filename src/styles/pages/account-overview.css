@@ -80,6 +80,14 @@
     transform: translateY(-5px);
 }
 
+.category-overview-chart {
+    height: 400px;
+}
+
+.transaction-overview-chart {
+    height: 300px;
+}
+
 .transaction-item-header {
     display: flex;
     justify-content: space-between;
