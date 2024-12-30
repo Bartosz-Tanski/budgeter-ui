@@ -189,4 +189,57 @@ export const fetchAllCategoriesStats = async (accountId, token) => {
     return await response.json();
 };
 
+export const fetchCategoryIncomes = async (
+    accountId,
+    token,
+    startDate,
+    endDate,
+    categoryName
+) => {
+    const params = new URLSearchParams();
+    if (startDate) params.append("StartDate", startDate);
+    if (endDate) params.append("EndDate", endDate);
+    if (categoryName) params.append("CategoryName", categoryName);
+
+    const url = `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/incomes/all?${params.toString()}`;
+
+    const response = await fetch(url, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch incomes for category");
+    }
+
+    return await response.json();
+};
+
+export const fetchCategoryExpenses = async (
+    accountId,
+    token,
+    startDate,
+    endDate,
+    categoryName
+) => {
+    const params = new URLSearchParams();
+    if (startDate) params.append("StartDate", startDate);
+    if (endDate) params.append("EndDate", endDate);
+    if (categoryName) params.append("CategoryName", categoryName);
+
+    const url = `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/expenses/all?${params.toString()}`;
+
+    const response = await fetch(url, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch expenses for category");
+    }
+
+    return await response.json();
+};
 
