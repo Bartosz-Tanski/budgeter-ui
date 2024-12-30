@@ -13,6 +13,6 @@
 }
 
 .category-name-label {
-    text-transform: none;
+    text-transform: uppercase;
     font-style: italic;
 }
