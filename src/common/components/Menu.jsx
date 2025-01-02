@@ -172,7 +172,7 @@ const Menu = ({ onLogout }) => {
                                     <Link to={`/accounts/${accountId}/limit`} className="dropdown-item">
                                         View Limit Details
                                     </Link>
-                                    <Link to={`/accounts/${accountId}/create-limit`} className="dropdown-item">
+                                    <Link to={`/accounts/${accountId}/limit/create`} className="dropdown-item">
                                         Create Limit
                                     </Link>
                                 </div>
