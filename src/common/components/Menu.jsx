@@ -1,7 +1,7 @@
-﻿import React, { useState, useEffect } from "react";
+﻿import React, {useState, useEffect} from "react";
 import {Link, useLocation, useParams} from "react-router-dom";
 
-const Menu = ({ onLogout }) => {
+const Menu = ({onLogout}) => {
     const location = useLocation();
     const [openDropdown, setOpenDropdown] = useState(null);
     const [openSubmenu, setOpenSubmenu] = useState(null);
@@ -80,7 +80,8 @@ const Menu = ({ onLogout }) => {
                             onClick={() => toggleDropdown("transactions")}
                         >
                             <span className="menu-label">
-                                Transactions <i className={`fas fa-chevron-down ${openDropdown === "transactions" ? "rotated" : ""}`}></i>
+                                Transactions <i
+                                className={`fas fa-chevron-down ${openDropdown === "transactions" ? "rotated" : ""}`}></i>
                             </span>
                             {openDropdown === "transactions" && (
                                 <div className="dropdown">
@@ -92,14 +93,16 @@ const Menu = ({ onLogout }) => {
                                         onClick={() => toggleSubmenu("incomes")}
                                     >
                                         <span className="menu-label">
-                                            Incomes <i className={`fas fa-chevron-right ${openSubmenu === "incomes" ? "rotated" : ""}`}></i>
+                                            Incomes <i
+                                            className={`fas fa-chevron-right ${openSubmenu === "incomes" ? "rotated" : ""}`}></i>
                                         </span>
                                         {openSubmenu === "incomes" && (
                                             <div className="nested-dropdown">
                                                 <Link to={`/accounts/${accountId}/incomes`} className="dropdown-item">
                                                     View Incomes
                                                 </Link>
-                                                <Link to={`/accounts/${accountId}/incomes/create`} className="dropdown-item">
+                                                <Link to={`/accounts/${accountId}/incomes/create`}
+                                                      className="dropdown-item">
                                                     Create Income
                                                 </Link>
                                             </div>
@@ -113,14 +116,16 @@ const Menu = ({ onLogout }) => {
                                         onClick={() => toggleSubmenu("expenses")}
                                     >
                                         <span className="menu-label">
-                                            Expenses <i className={`fas fa-chevron-right ${openSubmenu === "expenses" ? "rotated" : ""}`}></i>
+                                            Expenses <i
+                                            className={`fas fa-chevron-right ${openSubmenu === "expenses" ? "rotated" : ""}`}></i>
                                         </span>
                                         {openSubmenu === "expenses" && (
                                             <div className="nested-dropdown">
                                                 <Link to={`/accounts/${accountId}/expenses`} className="dropdown-item">
                                                     View Expenses
                                                 </Link>
-                                                <Link to={`/accounts/${accountId}/expenses/create`} className="dropdown-item">
+                                                <Link to={`/accounts/${accountId}/expenses/create`}
+                                                      className="dropdown-item">
                                                     Create Expense
                                                 </Link>
                                             </div>
@@ -140,7 +145,8 @@ const Menu = ({ onLogout }) => {
                             onClick={() => toggleDropdown("categories")}
                         >
                             <span className="menu-label">
-                                Categories <i className={`fas fa-chevron-down ${openDropdown === "categories" ? "rotated" : ""}`}></i>
+                                Categories <i
+                                className={`fas fa-chevron-down ${openDropdown === "categories" ? "rotated" : ""}`}></i>
                             </span>
                             {openDropdown === "categories" && (
                                 <div className="dropdown">
@@ -165,7 +171,8 @@ const Menu = ({ onLogout }) => {
                             onClick={() => toggleDropdown("limit")}
                         >
                             <span className="menu-label">
-                                Limit <i className={`fas fa-chevron-down ${openDropdown === "limit" ? "rotated" : ""}`}></i>
+                                Limit <i
+                                className={`fas fa-chevron-down ${openDropdown === "limit" ? "rotated" : ""}`}></i>
                             </span>
                             {openDropdown === "limit" && (
                                 <div className="dropdown">
@@ -177,6 +184,15 @@ const Menu = ({ onLogout }) => {
                                     </Link>
                                 </div>
                             )}
+                        </div>
+                    )}
+
+                    {/* Analycis Dropdown */}
+                    {isActiveAccount && (
+                        <div className="menu-item">
+                            <Link to={`/accounts/${accountId}/analytics`}>
+                                Analytics
+                            </Link>
                         </div>
                     )}
 

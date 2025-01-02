@@ -5,14 +5,14 @@ import {getDefaultStartDate, getTodayDate} from "../../helpers/dateHelper.js";
 const FilterPanel = ({
                          searchQuery,
                          onSearchChange,
-
+                         onStartDateChange,
+                         onEndDateChange,
                          selectedCategory,
                          onCategoryChange,
                          categories,
+                         startDate,
+                         endDate,
                      }) => {
-    const [startDate, setStartDate] = useState(getDefaultStartDate());
-    const [todayDate, setTodayDate] = useState(getTodayDate());
-
     return (
         <div className="filter-section">
             <div className="filter-left">
@@ -27,14 +27,14 @@ const FilterPanel = ({
                     type="date"
                     className="filter-input date-input"
                     value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
+                    onChange={(e) => onStartDateChange(e.target.value)}
                 />
                 -
                 <input
                     type="date"
                     className="filter-input date-input"
-                    value={todayDate}
-                    onChange={(e) => setTodayDate(e.target.value)}
+                    value={endDate}
+                    onChange={(e) => onEndDateChange(e.target.value)}
                 />
 
                 <select

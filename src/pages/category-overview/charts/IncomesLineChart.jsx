@@ -39,7 +39,7 @@ const IncomesLineChart = ({ incomesData, expandedCategory, currencyCode }) => {
 
         const d = new Date(item.date);
         const y = d.getFullYear();
-        const m = d.getMonth(); // 0..11
+        const m = d.getMonth();
 
         if (y === currentYear) {
             monthlySums[m] += item.amount ?? 0;
