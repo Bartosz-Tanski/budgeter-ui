@@ -62,10 +62,14 @@ const App = () => {
                         <Route path="/accounts/:accountId/categories/:categoryId" element={<CategoryOverview />} />
 
                         <Route path="/accounts/:accountId/limit" element={<LimitOverview />} />
-                        <Route path="/accounts/:accountId/create-limit" element={<CreateLimit />} />
+                        <Route path="/accounts/:accountId/limit/create" element={<CreateLimit />} />
 
 
-                        <Route path="*" element={<Navigate to="/accounts" />} />
+
+
+                        {token ?
+                            (<Route path="*" element={<Navigate to="/accounts" />} />) :
+                            (<Route element={<Navigate to="/" />} />)}
                     </>
                 )}
             </Routes>

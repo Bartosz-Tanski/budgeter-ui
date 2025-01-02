@@ -11,10 +11,19 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
 
     useEffect(() => {
         const fetchCategoryStats = async () => {
+            const now = new Date();
+            const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split("T")[0];
+            const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split("T")[0];
+
             try {
                 const response = await axios.get(
                     `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/stats`,
                     {
+                        params: {
+                            TransactionType: "all",
+                            StartDate: startOfMonth,
+                            EndDate: endOfMonth,
+                        },
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
@@ -26,12 +35,10 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
 
                 const expenses = data
                     .filter((item) => item.type === "Expense")
-                    .sort((a, b) => b.totalAmount - a.totalAmount)
                     .slice(0, 3);
 
                 const incomes = data
                     .filter((item) => item.type === "Income")
-                    .sort((a, b) => b.totalAmount - a.totalAmount)
                     .slice(0, 3);
 
                 setTopExpenses(expenses);

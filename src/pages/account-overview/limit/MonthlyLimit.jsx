@@ -5,6 +5,7 @@ import "../../../styles/pages/account-overview.css";
 import {useAuth} from "../../../context/AuthContext.jsx";
 import LimitOverviewProgressbar from "./LimitOverviewProgressbar.jsx";
 import LimitInformation from "./LimitInformation.jsx";
+import {Link} from "react-router-dom";
 
 const MonthlyLimit = ({accountId, currencyCode}) => {
     const {token} = useAuth();
@@ -95,7 +96,11 @@ const MonthlyLimit = ({accountId, currencyCode}) => {
                 </>
             ) : (
                 <>
-                    <p>No limit set for this account.</p>
+                    <p>Limit not set.
+                        <Link to={`/accounts/${accountId}/limit/create`} className="redirection-link">
+                            {" "} Click here to set limit.
+                        </Link>
+                    </p>
                 </>
             )
             }
