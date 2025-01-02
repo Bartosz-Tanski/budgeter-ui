@@ -28,9 +28,16 @@
     font-size: 18px;
     margin: 0 10px;
     transition: color 0.3s ease;
+    text-decoration: none;
 }
 
-.menu-item:hover {
+.menu-item a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover, .menu-item a:hover {
     color: #00bcd4;
 }
 
@@ -58,6 +65,10 @@
 }
 
 .dropdown-item:hover {
+    background-color: #444;
+}
+
+.menu-element:hover {
     background-color: #444;
 }
 

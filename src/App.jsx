@@ -1,10 +1,10 @@
+
 import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import LoginForm from "./pages/user/LoginForm.jsx";
 import RegisterForm from "./pages/user/RegisterForm.jsx";
 import Menu from "./common/components/Menu.jsx";
-import Accounts from "./pages/accounts-table/AccountsList.jsx";
 import CreateAccount from "./pages/accounts-table/form/CreateAccount.jsx";
 import AccountOverview from "./pages/account-overview/AccountOverview.jsx";
 import IncomesList from "./pages/transactions-table/incomes/IncomesList.jsx";
@@ -16,6 +16,7 @@ import LimitOverview from "./pages/limit-overview/LimitOverview.jsx";
 import CreateLimit from "./pages/limit-overview/form/CreateLimit.jsx";
 import AccountsList from "./pages/accounts-table/AccountsList.jsx";
 import CreateTransaction from "./pages/transactions-table/form/CreateTransaction.jsx";
+import AnalyticsDashboard from "./pages/analytics/AnalyticsDashboard.jsx";
 
 const App = () => {
     const { token, setToken } = useAuth();
@@ -50,12 +51,14 @@ const App = () => {
                         <Route path="/accounts/:accountId/expenses" element={<ExpensesList />} />
                         <Route
                             path="/accounts/:accountId/expenses/create"
-                            element={<CreateTransaction transactionType="expense" />} />
+                            element={<CreateTransaction transactionType="expense" />}
+                        />
 
                         <Route path="/accounts/:accountId/incomes" element={<IncomesList />} />
-                        <Route path="/accounts/:accountId/incomes/create"
-                               element={<CreateTransaction transactionType="income" />} />
-
+                        <Route
+                            path="/accounts/:accountId/incomes/create"
+                            element={<CreateTransaction transactionType="income" />}
+                        />
 
                         <Route path="/accounts/:accountId/categories" element={<Categories />} />
                         <Route path="/accounts/:accountId/create-category" element={<CreateCategory />} />
@@ -64,12 +67,10 @@ const App = () => {
                         <Route path="/accounts/:accountId/limit" element={<LimitOverview />} />
                         <Route path="/accounts/:accountId/limit/create" element={<CreateLimit />} />
 
+                        <Route path="/accounts/:accountId/analytics" element={<AnalyticsDashboard />}
+                        />
 
-
-
-                        {token ?
-                            (<Route path="*" element={<Navigate to="/accounts" />} />) :
-                            (<Route element={<Navigate to="/" />} />)}
+                        <Route path="*" element={<Navigate to="/accounts" />} />
                     </>
                 )}
             </Routes>

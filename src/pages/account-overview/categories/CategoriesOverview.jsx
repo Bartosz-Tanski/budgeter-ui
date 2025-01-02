@@ -12,8 +12,6 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
     useEffect(() => {
         const fetchCategoryStats = async () => {
             const now = new Date();
-            const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split("T")[0];
-            const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split("T")[0];
 
             try {
                 const response = await axios.get(
@@ -21,8 +19,6 @@ const CategoriesOverview = ({accountId, currencyCode}) => {
                     {
                         params: {
                             TransactionType: "all",
-                            StartDate: startOfMonth,
-                            EndDate: endOfMonth,
                         },
                         headers: {
                             Authorization: `Bearer ${token}`,

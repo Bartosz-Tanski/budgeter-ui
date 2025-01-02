@@ -16,6 +16,7 @@ import './styles/pages/user-forms.css';
 import './styles/pages/limit-details.css';
 import './styles/pages/account-overview.css'
 import './styles/pages/category-overview.css'
+import './styles/pages/analytics.css'
 
 
 

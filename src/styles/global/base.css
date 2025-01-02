@@ -12,6 +12,8 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    --form-control-color: #00bcd4;
 }
 
 body {
@@ -24,7 +26,6 @@ body {
 
 canvas {
     max-width: 100%;
-    /*height: 300px !important;*/
 }
 
 
@@ -46,4 +47,11 @@ canvas {
     text-transform: uppercase;
     border-bottom: 1px solid #333;
     padding-bottom: 10px;
+}
+
+.disable-selection {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
 }
