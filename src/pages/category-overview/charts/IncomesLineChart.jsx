@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import { Line } from "react-chartjs-2";
+import {Line} from "react-chartjs-2";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -21,15 +21,11 @@ ChartJS.register(
     Legend
 );
 
-const IncomesLineChart = ({ incomesData, expandedCategory, currencyCode }) => {
-    if (!Array.isArray(incomesData) || incomesData.length === 0) {
-        return <p>No data available for incomes bar chart</p>;
-    }
-
+const IncomesLineChart = ({incomesData, expandedCategory, currencyCode}) => {
     const now = new Date();
     const currentYear = now.getFullYear();
 
-    const monthLabels = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
     const monthlySums = Array(12).fill(0);
 
@@ -67,7 +63,7 @@ const IncomesLineChart = ({ incomesData, expandedCategory, currencyCode }) => {
         maintainAspectRatio: false,
         devicePixelRatio: 1,
         plugins: {
-            legend: { position: "top", onClick: null },
+            legend: {position: "top", onClick: null},
             title: {
                 display: true,
                 text: "Incomes",
@@ -84,16 +80,16 @@ const IncomesLineChart = ({ incomesData, expandedCategory, currencyCode }) => {
             y: {
                 beginAtZero: true,
                 suggestedMax: 1000,
-                title: { display: true, text: `Amount (${currencyCode})` },
+                title: {display: true, text: `Amount (${currencyCode})`},
             },
             x: {
-                title: { display: true, text: `Month of ${currentYear}` },
+                title: {display: true, text: `Month of ${currentYear}`},
             },
         },
     };
 
     return (
-        <Line data={data} options={options} />
+        <Line data={data} options={options}/>
     );
 };
 

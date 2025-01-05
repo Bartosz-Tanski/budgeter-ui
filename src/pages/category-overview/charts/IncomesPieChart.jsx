@@ -9,9 +9,9 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const IncomesPieChart = ({incomesData, expandedCategory, currencyCode}) => {
+const IncomesPieChart = ({incomesData, expandedCategory, currencyCode, startDate, endDate}) => {
     if (!Array.isArray(incomesData) || incomesData.length === 0) {
-        return <p>No data available for incomes pie chart</p>;
+        return <p>{`No data available for incomes pie chart for date: ${startDate} - ${endDate}`}</p>;
     }
 
     function generateNumber() {
@@ -64,7 +64,7 @@ const IncomesPieChart = ({incomesData, expandedCategory, currencyCode}) => {
         plugins: {
             title: {
                 display: true,
-                text: "Incomes",
+                text: `Incomes (${startDate} - ${endDate})`,
             },
             legend: {position: "top"},
             tooltip: {
