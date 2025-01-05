@@ -173,9 +173,11 @@ export const fetchCategoryDetails = async (accountId, categoryId, token) => {
         throw new Error(err.message);
     }
 };
-export const fetchAllCategoriesStats = async (accountId, token) => {
+export const fetchAllCategoriesStats = async (accountId, token, startDate, endDate) => {
+    // TODO: Display chart for current month
+
     const response = await fetch(
-        `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/stats`,
+        `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/categories/stats?StartDate=${startDate}&EndDate=${endDate}`,
         {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -242,4 +244,14 @@ export const fetchCategoryExpenses = async (
 
     return await response.json();
 };
+
+export function getCurrentMonthRange() {
+    const today = new Date();
+
+    const startDate = new Date(today.getFullYear(), today.getMonth(), 2);
+
+    const endDate = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+
+    return { startDate, endDate };
+}
 

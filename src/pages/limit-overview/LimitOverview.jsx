@@ -67,10 +67,6 @@ const LimitOverview = () => {
                     </>
                 )}
             </div>
-
-            {/*<div className="middle-section-container">*/}
-            {/*    /!*TODO: Move this section to Analytics Page: <ChartsSection accountId={accountId} currencyCode={currencyCode} />*!/*/}
-            {/*</div>*/}
         </div>
     );
 };

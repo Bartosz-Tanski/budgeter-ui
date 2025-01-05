@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import {Bar, Line} from "react-chartjs-2";
 
-const DashboardChart = ({ chartData, currencyCode, year, month }) => {
+const DashboardChart = ({ chartData, currencyCode }) => {
     const options = {
         responsive: true,
         maintainAspectRatio: false,

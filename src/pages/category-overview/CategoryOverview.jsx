@@ -4,7 +4,7 @@ import {useAuth} from "../../context/AuthContext.jsx";
 import {
     fetchAllCategoriesStats,
     fetchCategoryDetails, fetchCategoryExpenses,
-    fetchCategoryIncomes
+    fetchCategoryIncomes, getCurrentMonthRange
 } from "../../common/handlers/categoryHandlers.js";
 import {fetchCurrencyByAccountId} from "../../common/helpers/currenciesHelper.js";
 
@@ -42,6 +42,11 @@ const CategoryOverview = () => {
     const [expensesLoading, setExpensesLoading] = useState(true);
     const [expensesError, setExpensesError] = useState(null);
 
+    let { startDate, endDate } = getCurrentMonthRange();
+
+    startDate = startDate.toISOString().split('T')[0];
+    endDate = endDate.toISOString().split('T')[0];
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -78,9 +83,11 @@ const CategoryOverview = () => {
 
     useEffect(() => {
         const loadAllStats = async () => {
+            // TODO: Display chart for current month
+
             setStatsLoading(true);
             try {
-                const data = await fetchAllCategoriesStats(accountId, token);
+                const data = await fetchAllCategoriesStats(accountId, token, startDate, endDate);
                 setAllCategoriesStats(data);
             } catch (err) {
                 console.error("Failed to fetch all categories stats:", err);
@@ -108,7 +115,7 @@ const CategoryOverview = () => {
                 const mapped = data.map(item => ({
                     amount: item.amount,
                     date: item.date,
-                    categoryName: item.category?.name || "No Category"
+                    categoryName: item.category?.name
                 }));
                 setIncomesTransactions(mapped);
             } catch (err) {
@@ -137,7 +144,7 @@ const CategoryOverview = () => {
                 const mapped = data.map(item => ({
                     amount: item.amount,
                     date: item.date,
-                    categoryName: item.category?.name || "No Category"
+                    categoryName: item.category?.name
                 }));
                 setExpensesTransactions(mapped);
             } catch (err) {
@@ -178,6 +185,8 @@ const CategoryOverview = () => {
                         allExpensesStats={allExpensesStats}
                         categoryName={categoryName}
                         currencyCode={currencyCode}
+                        startDate={startDate}
+                        endDate={endDate}
                     />
 
                     {incomesLoading || expensesLoading ? (
