@@ -25,25 +25,25 @@ const TransactionsOverview = ({accountId, currencyCode}) => {
                 endDate = endDate.toISOString().split('T')[0];
 
                 const incomesResponse = await axios.get(
-                    `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/incomes?StartDate=${startDate}&EndDate=${endDate}`,
+                    `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/incomes/all?StartDate=${startDate}&EndDate=${endDate}`,
                     {
                         headers: {Authorization: `Bearer ${token}`},
                     }
                 );
 
                 const expensesResponse = await axios.get(
-                    `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/expenses?StartDate=${startDate}&EndDate=${endDate}`,
+                    `https://budgeter-api.azurewebsites.net/api/user/account/${accountId}/expenses/all?StartDate=${startDate}&EndDate=${endDate}`,
                     {
                         headers: {Authorization: `Bearer ${token}`},
                     }
                 );
 
-                const incomes = incomesResponse.data.items.map((income) => ({
+                const incomes = incomesResponse.data.map((income) => ({
                     ...income,
                     type: "income",
                 }));
 
-                const expenses = expensesResponse.data.items.map((expense) => ({
+                const expenses = expensesResponse.data.map((expense) => ({
                     ...expense,
                     type: "expense",
                 }));
