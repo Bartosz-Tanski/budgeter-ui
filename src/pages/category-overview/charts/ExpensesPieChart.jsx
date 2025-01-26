@@ -48,7 +48,7 @@ const ExpensesPieChart = ({expensesData, expandedCategory, currencyCode, startDa
                     const index = ctx.dataIndex;
                     const cat = labels[index];
                     if (cat === expandedCategory) {
-                        return 40;
+                        return 100;
                     }
                     return 0;
                 },

@@ -12,27 +12,30 @@ import {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-
 const CategoriesOverviewChart = ({categoryStats, currencyCode}) => {
-    const expenseLabels = categoryStats
-        .filter((item) => item.type === "Expense")
-        .map((item) => item.categoryName);
+    const allLabels = Array.from(
+        new Set(categoryStats.map((item) => item.categoryName))
+    );
+    const expensesData = allLabels.map((label) => {
+        const expenseItem = categoryStats.find(
+            (item) => item.type === "Expense" && item.categoryName === label
+        );
+        return expenseItem ? expenseItem.totalAmount : 0;
+    });
 
-    const incomeLabels = categoryStats
-        .filter((item) => item.type === "Income")
-        .map((item) => item.categoryName);
+    const incomesData = allLabels.map((label) => {
+        const incomeItem = categoryStats.find(
+            (item) => item.type === "Income" && item.categoryName === label
+        );
+        return incomeItem ? incomeItem.totalAmount : 0;
+    });
 
     const chartData = {
-        labels: [...new Set([...expenseLabels, ...incomeLabels])], // Merge unique labels
+        labels: allLabels,
         datasets: [
             {
                 label: "Expenses",
-                data: expenseLabels.map(
-                    (label) =>
-                        categoryStats.find(
-                            (item) => item.type === "Expense" && item.categoryName === label
-                        )?.totalAmount || 0
-                ),
+                data: expensesData,
                 borderColor: "rgba(255, 77, 79, 1)",
                 backgroundColor: "rgba(255, 77, 79, 0.6)",
                 hoverBackgroundColor: "rgba(255, 77, 79, 1)",
@@ -40,12 +43,7 @@ const CategoriesOverviewChart = ({categoryStats, currencyCode}) => {
             },
             {
                 label: "Incomes",
-                data: incomeLabels.map(
-                    (label) =>
-                        categoryStats.find(
-                            (item) => item.type === "Income" && item.categoryName === label
-                        )?.totalAmount || 0
-                ),
+                data: incomesData,
                 borderColor: "rgba(45, 108, 42, 1)",
                 backgroundColor: "rgba(45, 108, 42, 0.6)",
                 hoverBackgroundColor: "rgba(45, 108, 42, 1)",
@@ -87,7 +85,7 @@ const CategoriesOverviewChart = ({categoryStats, currencyCode}) => {
                 },
                 ticks: {
                     autoSkip: false,
-                    maxRotation: 45,
+                    maxRotation: 0,
                     minRotation: 0,
                 },
             },
@@ -112,7 +110,9 @@ const CategoriesOverviewChart = ({categoryStats, currencyCode}) => {
         barPercentage: 0.9,
     };
 
-    return (<Bar data={chartData} options={chartOptions}/>)
-}
+    return (
+        <Bar data={chartData} options={chartOptions} />
+    );
+};
 
 export default CategoriesOverviewChart;
