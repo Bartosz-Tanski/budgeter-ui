@@ -28,8 +28,6 @@ export const AuthProvider = ({ children }) => {
     const refreshAccessToken = async () => {
         if (!refreshToken) {
             console.error("No refresh token available.");
-            setToken(null);
-            setRefreshToken(null);
             return null;
         }
 
@@ -60,26 +58,7 @@ export const AuthProvider = ({ children }) => {
         if (storedRefreshToken) {
             setRefreshToken(storedRefreshToken);
         }
-
-        const axiosInterceptor = axios.interceptors.response.use(
-            (response) => response,
-            async (error) => {
-                if (error.response && error.response.status === 401) {
-                    const newToken = await refreshAccessToken();
-                    if (!newToken) {
-                        setToken(null);
-                        setRefreshToken(null);
-                        window.location.href = "/";
-                    }
-                }
-                return Promise.reject(error);
-            }
-        );
-
-        return () => {
-            axios.interceptors.response.eject(axiosInterceptor);
-        };
-    }, [refreshToken]);
+    }, []);
 
     return (
         <AuthContext.Provider
