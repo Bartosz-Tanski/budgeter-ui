@@ -1,5 +1,5 @@
 ﻿import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {
     getFirstDayOfThisMonth,
     getLastDayOfThisMonth,
@@ -52,6 +52,10 @@ const AnalyticsDashboard = () => {
     return (
         <div className="details-container">
             <div className="details-section">
+                <Link to={`/accounts/${accountId}`} className="redirection-link">
+                    <i className="fa-solid fa-chevron-left"></i>
+                    Account overview
+                </Link>
                 <h1 className="base-header">ACCOUNT ANALYTICS</h1>
             </div>
 
