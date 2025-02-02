@@ -31,13 +31,9 @@ const LimitOverview = () => {
 
     const remaining = limit !== null ? limit - spent : null;
     const percentage = limit !== null ? Math.min((spent / limit) * 100, 100) : 0;
-    const remainingDays =
-        new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate() -
-        new Date().getDate();
-    const dailyAverage = spent / (new Date().getDate());
-    const forecastedSpending = dailyAverage * (new Date().getDate() + remainingDays);
-    const willExceedLimit = forecastedSpending > limit;
     const percentageUsed = limit ? Math.min((spent / limit) * 100, 100) : 0;
+
+    const isLimitExceeded = remaining <= 0;
 
     return (
         <div className="details-container">
@@ -60,8 +56,7 @@ const LimitOverview = () => {
                             spent={spent}
                             remaining={remaining}
                             currencyCode={currencyCode}
-                            forecastedSpending={forecastedSpending}
-                            willExceedLimit={willExceedLimit}
+                            isLimitExceeded={isLimitExceeded}
                             percentageUsed={percentageUsed}
                         />
                     </>

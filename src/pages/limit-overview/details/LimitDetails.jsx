@@ -1,6 +1,6 @@
 import React from "react";
 
-const LimitDetails = ({ limit, spent, remaining, currencyCode, forecastedSpending, willExceedLimit, percentageUsed }) => {
+const LimitDetails = ({ limit, spent, remaining, currencyCode, isLimitExceeded }) => {
     return (
         <div className="details-list">
             <ul className="details-list">
@@ -19,17 +19,13 @@ const LimitDetails = ({ limit, spent, remaining, currencyCode, forecastedSpendin
                     >{` ${remaining.toLocaleString()} ${currencyCode}`}</span>
                 </li>
                 <li>
-                    <span className="details-label">Forecasted Spending:</span>
-                    <span className="details-value">{` ${forecastedSpending.toFixed(2)} ${currencyCode}`}</span>
-                </li>
-                <li>
-                    <span className="details-label">Will you exceed the limit: </span>
+                    <span className="details-label">Is limit exceeded: </span>
                     <span className="details-value"
                           style={{
-                              color: willExceedLimit ? "red" : "green",
+                              color: isLimitExceeded ? "red" : "green",
                               fontWeight: "bold",
                           }}>
-                    {willExceedLimit ? "Yes" : "No"}
+                    {isLimitExceeded ? "Yes" : "No"}
                 </span>
                 </li>
             </ul>
